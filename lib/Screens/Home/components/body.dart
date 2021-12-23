@@ -7,13 +7,14 @@ class Body extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     // This size provide us total height and width of our screen 
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.blueAccent,
       body: SingleChildScrollView(
+        
       	child: Container(
-	        child: Column(
+	        child: Column( 
 	          children: <Widget>[
 	            Container(
-	              height: 400,
+	              height: 400, 
 	              decoration: BoxDecoration(
 	                image: DecorationImage(
 	                  image: AssetImage('assets/images/background.png'),
