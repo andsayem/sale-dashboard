@@ -30,6 +30,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
         bottomNavigationBar: CurvedNavigationBar(
           key: _bottomNavigationKey,
           index: 0,
+          
           height: 70.0, 
           items: <Widget>[
             Icon(Icons.home_outlined, size: 30 , color: kPrimaryColor,),
