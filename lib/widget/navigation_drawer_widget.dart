@@ -7,14 +7,14 @@ class NavigationDrawerWidget extends StatelessWidget {
   final padding = EdgeInsets.symmetric(horizontal: 20);
   @override
   Widget build(BuildContext context) {
-    final name = 'Sarah Abs';
-    final email = 'sarah@abs.com';
+    final name = 'Abu Sayed ';
+    final email = 'sayem@ssgbd.com';
     final urlImage =
         'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80';
 
     return Drawer(
       child: Material(
-        color: Color.fromRGBO(50, 75, 205, 1),
+        color: Colors.purple,
         child: ListView(
           children: <Widget>[
             buildHeader(
@@ -23,7 +23,7 @@ class NavigationDrawerWidget extends StatelessWidget {
               email: email,
               onClicked: () => Navigator.of(context).push(MaterialPageRoute(
                 builder: (context) => UserPage(
-                  name: 'Sarah Abs',
+                  name: 'Sayem',
                   urlImage: urlImage,
                 ),
               )),
@@ -32,44 +32,50 @@ class NavigationDrawerWidget extends StatelessWidget {
               padding: padding,
               child: Column(
                 children: [
-                  const SizedBox(height: 12),
+                  const SizedBox(height: 3),
                   buildSearchField(),
-                  const SizedBox(height: 24),
+                  const SizedBox(height: 6),
                   buildMenuItem(
-                    text: 'People',
-                    icon: Icons.people,
+                    text: 'Summary Report',
+                    icon: Icons.dashboard_customize,
                     onClicked: () => selectedItem(context, 0),
                   ),
-                  const SizedBox(height: 16),
+                  const SizedBox(height: 5),
                   buildMenuItem(
-                    text: 'Favourites',
-                    icon: Icons.favorite_border,
+                    text: 'Channel Wise Report',
+                    icon: Icons.repeat_rounded,
                     onClicked: () => selectedItem(context, 1),
                   ),
-                  const SizedBox(height: 16),
+                  const SizedBox(height: 5),
                   buildMenuItem(
-                    text: 'Workflow',
+                    text: 'Channel Head Wise Report',
                     icon: Icons.workspaces_outline,
                     onClicked: () => selectedItem(context, 2),
                   ),
-                  const SizedBox(height: 16),
+                   const SizedBox(height: 5),
                   buildMenuItem(
-                    text: 'Updates',
-                    icon: Icons.update,
-                    onClicked: () => selectedItem(context, 3),
+                    text: 'Division Wise Report View',
+                    icon: Icons.archive_sharp,
+                    onClicked: () => selectedItem(context, 2),
                   ),
-                  const SizedBox(height: 24),
-                  Divider(color: Colors.white70),
-                  const SizedBox(height: 24),
+                  const SizedBox(height: 2),
+                    Divider(color: Colors.white70),
                   buildMenuItem(
-                    text: 'Plugins',
-                    icon: Icons.account_tree_outlined,
+                    text: 'Profile',
+                    icon: Icons.person_outlined,
+                    onClicked: () => selectedItem(context, 3),
+                  ), 
+                
+                  const SizedBox(height: 5),
+                  buildMenuItem(
+                    text: 'Change password',
+                    icon: Icons.password_outlined,
                     onClicked: () => selectedItem(context, 4),
                   ),
-                  const SizedBox(height: 16),
+                  const SizedBox(height: 5),
                   buildMenuItem(
-                    text: 'Notifications',
-                    icon: Icons.notifications_outlined,
+                    text: 'Login',
+                    icon: Icons.login,
                     onClicked: () => selectedItem(context, 5),
                   ),
                 ],

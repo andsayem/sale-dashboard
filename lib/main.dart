@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) => MaterialApp(
         debugShowCheckedModeBanner: false,
         title: title,
-        theme: ThemeData(primarySwatch: Colors.lightBlue),
+        theme: ThemeData(primarySwatch: Colors.purple),
         home: MainPage(),
       );
 }

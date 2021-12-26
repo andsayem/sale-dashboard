@@ -27,7 +27,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.blueAccent,
+        backgroundColor: Colors.purple,
         bottomNavigationBar: CurvedNavigationBar(
           key: _bottomNavigationKey,
           index: 0,
@@ -42,7 +42,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
           ],
           color: Colors.white,
           buttonBackgroundColor: Colors.white,
-          backgroundColor: Colors.grey.shade300,
+          backgroundColor: Colors.purple,
           animationCurve: Curves.easeInOut,
           animationDuration: Duration(milliseconds: 600),
           onTap: (index) {
