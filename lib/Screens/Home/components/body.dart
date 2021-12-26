@@ -17,28 +17,28 @@ class Body extends StatelessWidget {
             physics: ClampingScrollPhysics(),
             children: <Widget>[
               // Custom AppBar
-              Container(
-                margin: EdgeInsets.only(left: 16, right: 16, top: 16),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Icon(Icons.menu),
-                    Container(
-                      height: 40,
-                      width: 59,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          image: DecorationImage(
-                              image:
-                                  AssetImage('assets/images/user_image.png'))),
-                    )
-                  ],
-                ),
-              ),
-              //Car Section
-              SizedBox(
-                height: 25,
-              ),
+              // Container(
+              //   margin: EdgeInsets.only(left: 16, right: 16, top: 16),
+              //   child: Row(
+              //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //     children: <Widget>[
+              //       Icon(Icons.menu),
+              //       Container(
+              //         height: 40,
+              //         width: 59,
+              //         decoration: BoxDecoration(
+              //             borderRadius: BorderRadius.circular(20),
+              //             image: DecorationImage(
+              //                 image:
+              //                     AssetImage('assets/images/user_image.png'))),
+              //       )
+              //     ],
+              //   ),
+              // ),
+              // //Car Section
+              // SizedBox(
+              //   height: 25,
+              // ),
               Padding(
                 padding: EdgeInsets.only(left: 16, bottom: 16),
                 child: Column(
@@ -78,7 +78,16 @@ class Body extends StatelessWidget {
                     );
                   },
                 ),
-              )
+              ),
+              Padding(
+                padding: EdgeInsets.only(left: 16,bottom: 16 , top: 10),
+                child: Row(
+                  children:<Widget>[ 
+                    Text('Operations'),
+                    
+                  ],
+                  ),
+                )
             ],
           ),
         ));

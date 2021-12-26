@@ -3,65 +3,51 @@
 import 'package:flutter/material.dart';
 import 'package:dashboard/constants.dart';
 import 'package:dashboard/Screens/Home/home.dart';
-import 'package:dashboard/Screens/Login/login_screen.dart';
+import 'package:dashboard/Screens/Login/login_screen.dart'; 
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:dashboard/Screens/Tabs/tabs.dart';
-void main() => runApp(MaterialApp(home: Tabs()));
+import 'package:dashboard/Screens/Sitemenu/menu_dashboard_layout.dart';
+import 'package:dashboard/Screens/Tabs/tabs.dart'; 
+import 'package:flutter/services.dart';
+import 'package:dashboard/widget/button_widget.dart';
+import 'package:dashboard/widget/navigation_drawer_widget.dart';
 
-// class BottomNavBar extends StatefulWidget {
-//   @override
-//   _BottomNavBarState createState() => _BottomNavBarState();
-// }
+//Future main() async {
 
-// class _BottomNavBarState extends State<BottomNavBar> {
-//   int _page = 0;
-//   GlobalKey<CurvedNavigationBarState> _bottomNavigationKey = GlobalKey();
+Future main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
 
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//         bottomNavigationBar: CurvedNavigationBar(
-//           key: _bottomNavigationKey,
-//           index: 0,
-//           height: 60.0,
-//           items: <Widget>[
-//             Icon(Icons.add, size: 30),
-//             Icon(Icons.list, size: 30),
-//             Icon(Icons.compare_arrows, size: 30),
-//             Icon(Icons.call_split, size: 30),
-//             Icon(Icons.perm_identity, size: 30),
-//           ],
-//           color: Colors.white,
-//           buttonBackgroundColor: Colors.white,
-//           backgroundColor: Colors.blueAccent,
-//           animationCurve: Curves.easeInOut,
-//           animationDuration: Duration(milliseconds: 600),
-//           onTap: (index) {
-//             setState(() {
-//               _page = index;
-//             });
-//           },
-//           letIndexChange: (index) => true,
-//         ),
-//         body: Container(
-//           color: Colors.blueAccent,
-//           child: Center(
-//             child: Column(
-//               mainAxisAlignment: MainAxisAlignment.center,
-//               children: <Widget>[
-//                 Text(_page.toString(), textScaleFactor: 10.0),
-//                 ElevatedButton(
-//                   child: Text('Go To Page of index 1'),
-//                   onPressed: () {
-//                     final CurvedNavigationBarState? navBarState =
-//                         _bottomNavigationKey.currentState;
-//                     navBarState?.setPage(1);
-//                   },
-//                 )
-//               ],
-//             ),
-//           ),
-//         ));
-//   }
-//}
- 
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  static final String title = 'Sale Dashboard';
+
+  @override
+  Widget build(BuildContext context) => MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: title,
+        theme: ThemeData(primarySwatch: Colors.lightBlue),
+        home: MainPage(),
+      );
+}
+
+class MainPage extends StatefulWidget {
+  @override
+  _MainPageState createState() => _MainPageState();
+}
+
+class _MainPageState extends State<MainPage> {
+  @override
+  Widget build(BuildContext context) => Scaffold(
+        drawer: NavigationDrawerWidget(),
+        // endDrawer: NavigationDrawerWidget(),
+        appBar: AppBar(
+          title: Text(MyApp.title),
+        ),
+        body:  Tabs()
+      );
+}
