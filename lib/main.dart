@@ -1,53 +1,69 @@
-//import 'package:day12_login/Animation/FadeAnimation.dart';
-//import 'package:dashboard/Animation/FadeAnimation.dart';
 import 'package:flutter/material.dart';
-import 'package:dashboard/constants.dart';
-import 'package:dashboard/Screens/Home/home.dart';
-import 'package:dashboard/Screens/Login/login_screen.dart'; 
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:dashboard/Screens/Sitemenu/menu_dashboard_layout.dart';
-import 'package:dashboard/Screens/Tabs/tabs.dart'; 
-import 'package:flutter/services.dart';
-import 'package:dashboard/widget/button_widget.dart';
-import 'package:dashboard/widget/navigation_drawer_widget.dart';
-
-//Future main() async {
-
-Future main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await SystemChrome.setPreferredOrientations([
-    DeviceOrientation.portraitUp,
-    DeviceOrientation.portraitDown,
-  ]);
-
+import 'package:shopx/views/homepage.dart';
+import 'package:shopx/views/screens/Login/login_screen.dart'; 
+import 'constants.dart';
+void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  static final String title = 'Sale Dashboard';
-
   @override
-  Widget build(BuildContext context) => MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: title,
-        theme: ThemeData(primarySwatch: Colors.purple),
-        home: MainPage(),
-      );
+  Widget build(BuildContext context) {
+    return MaterialApp(  
+      theme: ThemeData(
+         primarySwatch: CustomeTheme.primaryLight,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+      ),
+      debugShowCheckedModeBanner: false,
+      home:LoginScreen(),
+    );
+  }
 }
 
-class MainPage extends StatefulWidget {
+class MyHomePage extends StatefulWidget {
+  MyHomePage({Key key, this.title}) : super(key: key);
+
+  final String title;
+
   @override
-  _MainPageState createState() => _MainPageState();
+  _MyHomePageState createState() => _MyHomePageState();
 }
 
-class _MainPageState extends State<MainPage> {
+class _MyHomePageState extends State<MyHomePage> {
+  int _counter = 0;
+
+  void _incrementCounter() {
+    setState(() {
+      _counter++;
+    });
+  }
+
   @override
-  Widget build(BuildContext context) => Scaffold(
-        drawer: NavigationDrawerWidget(),
-        // endDrawer: NavigationDrawerWidget(),
-        appBar: AppBar(
-          title: Text(MyApp.title),
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+         
+        title: Text(widget.title),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text(
+              'You have pushed the button this many times:',
+            ),
+            Text(
+              '$_counter',
+              style: Theme.of(context).textTheme.headline4,
+            ),
+          ],
         ),
-        body:  Tabs()
-      );
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: _incrementCounter,
+        tooltip: 'Increment',
+        child: Icon(Icons.add),
+      ),
+    );
+  }
 }

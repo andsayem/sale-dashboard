@@ -1,42 +1,54 @@
+import 'package:shopx/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:dashboard/page/favourites_page.dart';
-import 'package:dashboard/page/people_page.dart';
-import 'package:dashboard/page/user_page.dart';
+import 'package:shopx/views/page/division_page.dart';
+import 'package:shopx/views/page/people_page.dart';
+import 'package:shopx/views/page/user_page.dart';
+import 'package:shopx/views/homepage.dart';
 
 class NavigationDrawerWidget extends StatelessWidget {
   final padding = EdgeInsets.symmetric(horizontal: 20);
   @override
   Widget build(BuildContext context) {
-    final name = 'Abu Sayed ';
-    final email = 'sayem@ssgbd.com';
+    final name = 'Abu Sayed';
+    final user_id = '8065';
     final urlImage =
-        'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80';
+        'https://scontent.fdac127-1.fna.fbcdn.net/v/t39.30808-1/p320x320/271976019_2087658738063209_8820353234475578895_n.jpg?_nc_cat=105&ccb=1-5&_nc_sid=7206a8&_nc_eui2=AeHCLM7PH2QFFV2JJleJ3MJqDS3MbpHeo6QNLcxukd6jpOeN3hA7vdmot8GKmxExRhHyogBb_Yd8LR0PMUvWRmIt&_nc_ohc=Z0izBa5oMe8AX_RwUa0&_nc_ht=scontent.fdac127-1.fna&oh=00_AT9U6TCoHPkUn6BqL1LXUYc_A5rh-3ocdjh8mZEzPgo6Fw&oe=61FF8BE7';
 
     return Drawer(
       child: Material(
-        color: Colors.purple,
+        color: CustomeTheme.primaryLight,
         child: ListView(
           children: <Widget>[
             buildHeader(
               urlImage: urlImage,
               name: name,
-              email: email,
+              email: user_id,
               onClicked: () => Navigator.of(context).push(MaterialPageRoute(
                 builder: (context) => UserPage(
-                  name: 'Sayem',
+                  name: name,
                   urlImage: urlImage,
                 ),
               )),
             ),
+            // UserAccountsDrawerHeader(
+            //   accountName: Text(name),
+            //   accountEmail: Text(user_id),
+            //   currentAccountPicture: CircleAvatar(
+            //     backgroundImage: NetworkImage(urlImage),
+            //   ),
+            // ),
             Container(
               padding: padding,
+              height: MediaQuery.of(context).size.height * 1,
+              color: CustomeTheme.secondaryLight,
               child: Column(
                 children: [
+                  
                   const SizedBox(height: 3),
                   buildSearchField(),
                   const SizedBox(height: 6),
                   buildMenuItem(
-                    text: 'Summary Report',
+                    text: 'Dashboard Summary Report',
                     icon: Icons.dashboard_customize,
                     onClicked: () => selectedItem(context, 0),
                   ),
@@ -52,20 +64,20 @@ class NavigationDrawerWidget extends StatelessWidget {
                     icon: Icons.workspaces_outline,
                     onClicked: () => selectedItem(context, 2),
                   ),
-                   const SizedBox(height: 5),
+                  const SizedBox(height: 5),
                   buildMenuItem(
-                    text: 'Division Wise Report View',
+                    text: 'Division Wise Report',
                     icon: Icons.archive_sharp,
                     onClicked: () => selectedItem(context, 2),
                   ),
+                
                   const SizedBox(height: 2),
-                    Divider(color: Colors.white70),
+                  Divider(color: Colors.black),
                   buildMenuItem(
                     text: 'Profile',
                     icon: Icons.person_outlined,
                     onClicked: () => selectedItem(context, 3),
-                  ), 
-                
+                  ),
                   const SizedBox(height: 5),
                   buildMenuItem(
                     text: 'Change password',
@@ -88,15 +100,15 @@ class NavigationDrawerWidget extends StatelessWidget {
   }
 
   Widget buildHeader({
-    required String urlImage,
-    required String name,
-    required String email,
-    required VoidCallback onClicked,
+    String urlImage,
+    String name,
+    String email,
+    VoidCallback onClicked,
   }) =>
       InkWell(
         onTap: onClicked,
         child: Container(
-          padding: padding.add(EdgeInsets.symmetric(vertical: 40)),
+          padding: padding.add(EdgeInsets.symmetric(vertical: 20)),
           child: Row(
             children: [
               CircleAvatar(radius: 30, backgroundImage: NetworkImage(urlImage)),
@@ -106,28 +118,23 @@ class NavigationDrawerWidget extends StatelessWidget {
                 children: [
                   Text(
                     name,
-                    style: TextStyle(fontSize: 20, color: Colors.white),
+                    style: TextStyle(fontSize: 18, color: Colors.black),
                   ),
                   const SizedBox(height: 4),
                   Text(
                     email,
-                    style: TextStyle(fontSize: 14, color: Colors.white),
+                    style: TextStyle(fontSize: 14, color: Colors.black),
                   ),
                 ],
               ),
               Spacer(),
-              CircleAvatar(
-                radius: 24,
-                backgroundColor: Color.fromRGBO(30, 60, 168, 1),
-                child: Icon(Icons.add_comment_outlined, color: Colors.white),
-              )
             ],
           ),
         ),
       );
 
   Widget buildSearchField() {
-    final color = Colors.white;
+    final color = Colors.black;
 
     return TextField(
       style: TextStyle(color: color),
@@ -151,11 +158,11 @@ class NavigationDrawerWidget extends StatelessWidget {
   }
 
   Widget buildMenuItem({
-    required String text,
-    required IconData icon,
-    VoidCallback? onClicked,
+    String text,
+    IconData icon,
+    VoidCallback onClicked,
   }) {
-    final color = Colors.white;
+    final color = Colors.black;
     final hoverColor = Colors.white70;
 
     return ListTile(
@@ -177,7 +184,12 @@ class NavigationDrawerWidget extends StatelessWidget {
         break;
       case 1:
         Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => FavouritesPage(),
+          builder: (context) => DivisionPage(),
+        ));
+        break;
+       case 3:
+          Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) => HomePage(),
         ));
         break;
     }
