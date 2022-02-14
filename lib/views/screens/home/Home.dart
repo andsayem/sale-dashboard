@@ -39,9 +39,17 @@ class _HomePageState extends State<HomePage> {
                       children: <Widget>[
                         Container(
                           child: TabBar(
+                            //isScrollable: true,
+                            labelStyle:
+                                Theme.of(context).tabBarTheme.labelStyle,
                             labelColor: kPrimaryColor,
-                            unselectedLabelColor: Colors.black,
                             indicatorWeight: 5,
+                            unselectedLabelStyle: Theme.of(context)
+                                .tabBarTheme
+                                .unselectedLabelStyle,
+                            unselectedLabelColor: Theme.of(context)
+                                .tabBarTheme
+                                .unselectedLabelColor,
                             indicatorColor: kPrimaryColor,
                             tabs: [
                               Tab(text: 'Summary'),
@@ -161,21 +169,20 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   ElevatedButton(
-                    child: Text(
-                    count,
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 15,
-                    ),
-                  ),
-                    onPressed: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => Dashboard_details(),
-                      ));
-                                  // Navigate back to first route when tapped.
-                  }),
+                      child: Text(
+                        count,
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 15,
+                        ),
+                      ),
+                      onPressed: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => Dashboard_details(),
+                        ));
+                        // Navigate back to first route when tapped.
+                      }),
                   SizedBox(height: 25),
-                  
                 ],
               ),
             ),

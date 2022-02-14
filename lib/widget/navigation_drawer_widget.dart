@@ -102,7 +102,7 @@ class NavigationDrawerWidget extends StatelessWidget {
                             fontFamily: AppTheme.fontName,
                             fontWeight: FontWeight.w600,
                             fontSize: 16,
-                            color: AppTheme.darkText,
+                            color: AppTheme.white,
                           ),
                           textAlign: TextAlign.left,
                         ),
@@ -147,12 +147,12 @@ class NavigationDrawerWidget extends StatelessWidget {
                 children: [
                   Text(
                     name,
-                    style: TextStyle(fontSize: 18, color: Colors.black),
+                    style: TextStyle(fontSize: 18, color: Colors.white),
                   ),
                   const SizedBox(height: 4),
                   Text(
                     email,
-                    style: TextStyle(fontSize: 14, color: Colors.black),
+                    style: TextStyle(fontSize: 14, color: Colors.white),
                   ),
                 ],
               ),
@@ -163,7 +163,7 @@ class NavigationDrawerWidget extends StatelessWidget {
       );
 
   Widget buildSearchField() {
-    final color = Colors.black;
+    final color = Colors.white;
 
     return TextField(
       style: TextStyle(color: color),
@@ -191,7 +191,7 @@ class NavigationDrawerWidget extends StatelessWidget {
     IconData icon,
     VoidCallback onClicked,
   }) {
-    final color = Colors.black;
+    final color = Colors.white;
     final hoverColor = Colors.white70;
 
     return ListTile(
