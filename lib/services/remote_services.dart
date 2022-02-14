@@ -47,7 +47,7 @@ class RemoteServices {
     var response = await client.get(Uri.parse(
         'https://dashboarddev.ssgbd.com/app_api/dashboard-summary-report.php?name=report&date=2018-01-01&to=2022-01-24&channel=Lighting&division=Barishal,Barishal-A,Barishal-L,Bogra,Bogra-A,Bogra-L,Chittagong,Chittagong-A,Chittagong-L,Comilla,Comilla-A,Comilla-L,Dhaka%20North,Dhaka%20North-A,Dhaka%20North-L,Dhaka%20South,Dhaka%20South-A,Dhaka%20South-L,Division-1,Division-2,Division-3,Division-4,DMC,DMC-A,DMC-L,Faridpur,Jessore,Jessore-A,Jessore-L,Khulna,Khulna-A,Khulna-L,Mymensingh,Mymensingh-A,Mymensingh-L,Rangpur,Rangpur-A,Rangpur-L,Sylhet,Sylhet-A,Sylhet-L&token=1'));
      if (response.statusCode == 200) {
-      return dashboardSummaryReportToJson(response.body);
+      //return dashboardSummaryReportToJson(response.data);
     } else {
       //show error message
       return null;
