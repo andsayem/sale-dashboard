@@ -20,23 +20,102 @@ class _HomePageState extends State<HomePage> {
   final ChannelController channelController = Get.put(ChannelController());
   @override
   Widget build(BuildContext context) {
-    List<String> channe = ['3','3','34'];
+    List<String> channe = channelController.channelList(); // ['A Tab', 'B Tab', 'C Tab'];
     // channelController.channelList();
+
     return Scaffold(
-        backgroundColor: Colors.white,
-        body: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: GridView.count(
-            primary: false,
-            padding: const EdgeInsets.all(1),
-            crossAxisCount: 2,
+      body: Container(
+        child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              for (var i in channe)
-                presentCard(context, i.toString(), 'Dashboard', Icons.light)
-            ],
-          ),
-          
-        ));
+              DefaultTabController(
+                  length: 3, // length of tabs
+                  initialIndex: 0,
+                  child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: <Widget>[
+                        Container(
+                          child: TabBar(
+                            labelColor: Colors.green,
+                            unselectedLabelColor: Colors.black,
+                            tabs: [
+                              Tab(text: 'Summary'),
+                              Tab(text: 'Channel'),
+                              Tab(text: 'Channel Head'),
+                              // Tab(text: 'Tab 4'),
+                            ],
+                          ),
+                        ),
+                        Container(
+                            height: 500, //height of TabBarView
+                            decoration: BoxDecoration(
+                                border: Border(
+                                    top: BorderSide(
+                                        color: Colors.grey, width: 0.5))),
+                            child: TabBarView(children: <Widget>[
+                              Container(
+                                child: Center(
+                                  child: GridView.count(
+                                    primary: false,
+                                    padding: const EdgeInsets.all(1),
+                                    crossAxisCount: 2,
+                                    children: <Widget>[
+                                      for (var i in channe)
+                                        presentCard(context, i.toString(),
+                                            'Dashboard', Icons.light)
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              Container(
+                                child: Center(
+                                  child: GridView.count(
+                                    primary: false,
+                                    padding: const EdgeInsets.all(1),
+                                    crossAxisCount: 2,
+                                    children: <Widget>[
+                                      for (var i in channe)
+                                        presentCard(context, i.toString(),
+                                            'Channel', Icons.light)
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              Container(
+                                 child: Center(
+                                  child: GridView.count(
+                                    primary: false,
+                                    padding: const EdgeInsets.all(1),
+                                    crossAxisCount: 2,
+                                    children: <Widget>[
+                                      for (var i in channe)
+                                        presentCard(context, i.toString(),
+                                            'Channel Head', Icons.light)
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ]))
+                      ])),
+            ]),
+      ),
+    );
+
+    // return Scaffold(
+    //     backgroundColor: Colors.white,
+    //     body: Padding(
+    //       padding: const EdgeInsets.all(8.0),
+    //       child: GridView.count(
+    //         primary: false,
+    //         padding: const EdgeInsets.all(1),
+    //         crossAxisCount: 2,
+    //         children: <Widget>[
+    //           for (var i in channe)
+    //             presentCard(context, i.toString(), 'Dashboard', Icons.light)
+    //         ],
+    //       ),
+
+    //     ));
   }
 
   Container presentCard(
