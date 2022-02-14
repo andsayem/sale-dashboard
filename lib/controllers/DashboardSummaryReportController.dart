@@ -13,15 +13,15 @@ class DashboardSummaryReportController  extends GetxController {
   }
 
   void fetchSummaryReport() async {
-    // try {
-    //   isLoading(true);
-    //   var summaryReports = await RemoteServices.fetchSummaryReports();
-    //   if (summaryReports != null) {
-    //     print(summaryReports);
-    //   //  summaryReportList.value = summaryReports as List<String>;
-    //   }
-    // } finally {
-    //   isLoading(false);
-    // }
+    try {
+      isLoading(true);
+      var summaryReports = await RemoteServices.fetchSummaryReports();
+      if (summaryReports != null) {
+       // print(summaryReports);
+       summaryReportList.value = summaryReports as List<String>;
+      }
+    } finally {
+      isLoading(false);
+    }
   }
 }
