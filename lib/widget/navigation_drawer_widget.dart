@@ -4,6 +4,7 @@ import 'package:shopx/views/page/division_page.dart';
 import 'package:shopx/views/page/people_page.dart';
 import 'package:shopx/views/page/user_page.dart';
 import 'package:shopx/views/homepage.dart';
+import 'package:shopx/app_theme.dart';
 
 class NavigationDrawerWidget extends StatelessWidget {
   final padding = EdgeInsets.symmetric(horizontal: 20);
@@ -43,7 +44,6 @@ class NavigationDrawerWidget extends StatelessWidget {
               color: CustomeTheme.secondaryLight,
               child: Column(
                 children: [
-                  
                   const SizedBox(height: 3),
                   buildSearchField(),
                   const SizedBox(height: 6),
@@ -70,7 +70,6 @@ class NavigationDrawerWidget extends StatelessWidget {
                     icon: Icons.archive_sharp,
                     onClicked: () => selectedItem(context, 2),
                   ),
-                
                   const SizedBox(height: 2),
                   Divider(color: Colors.black),
                   buildMenuItem(
@@ -89,6 +88,36 @@ class NavigationDrawerWidget extends StatelessWidget {
                     text: 'Login',
                     icon: Icons.login,
                     onClicked: () => selectedItem(context, 5),
+                  ),
+                  Divider(
+                    height: 1,
+                    color: AppTheme.grey.withOpacity(0.6),
+                  ),
+                  Column(
+                    children: <Widget>[
+                      ListTile(
+                        title: Text(
+                          'Sign Out',
+                          style: TextStyle(
+                            fontFamily: AppTheme.fontName,
+                            fontWeight: FontWeight.w600,
+                            fontSize: 16,
+                            color: AppTheme.darkText,
+                          ),
+                          textAlign: TextAlign.left,
+                        ),
+                        trailing: Icon(
+                          Icons.power_settings_new,
+                          color: Colors.red,
+                        ),
+                        onTap: () {
+                          // onTapped();
+                        },
+                      ),
+                      SizedBox(
+                        height: MediaQuery.of(context).padding.bottom,
+                      )
+                    ],
                   ),
                 ],
               ),
@@ -187,8 +216,8 @@ class NavigationDrawerWidget extends StatelessWidget {
           builder: (context) => DivisionPage(),
         ));
         break;
-       case 3:
-          Navigator.of(context).push(MaterialPageRoute(
+      case 3:
+        Navigator.of(context).push(MaterialPageRoute(
           builder: (context) => HomePage(),
         ));
         break;

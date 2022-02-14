@@ -20,7 +20,8 @@ class _HomePageState extends State<HomePage> {
   final ChannelController channelController = Get.put(ChannelController());
   @override
   Widget build(BuildContext context) {
-    List<String> channe = channelController.channelList();
+    List<String> channe = ['3','3','34'];
+    // channelController.channelList();
     return Scaffold(
         backgroundColor: Colors.white,
         body: Padding(
