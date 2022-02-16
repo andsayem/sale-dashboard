@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:shopx/views/homepage.dart';
-import 'package:shopx/views/screens/Login/login_screen.dart'; 
+import 'package:shopx/views/screens/login/login_screen.dart'; 
+import 'package:shopx/routes/routes.dart';
+import 'package:shopx/views/opening_screen.dart';
+import 'package:shopx/views/screens/login/login_screen.dart';
 import 'constants.dart';
+
+GlobalKey globalKey = GlobalKey();
 void main() {
   runApp(MyApp());
 }
@@ -9,14 +14,20 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(  
-      theme: ThemeData(
-         primarySwatch: CustomeTheme.primaryLight,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      debugShowCheckedModeBanner: false,
-      home:LoginScreen(),
+     return MaterialApp(
+      title: 'Opening View Demo',
+      routes: AppRoutes.define(),
+      key: globalKey,
+      home: LoginScreen(),
     );
+    // return MaterialApp(  
+    //   theme: ThemeData(
+    //      primarySwatch: CustomeTheme.primaryLight,
+    //     visualDensity: VisualDensity.adaptivePlatformDensity,
+    //   ),
+    //   debugShowCheckedModeBanner: false,
+    //   home:LoginScreen(),
+    // );
   }
 }
 

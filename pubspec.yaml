@@ -36,6 +36,7 @@ dependencies:
   curved_navigation_bar: ^1.0.2
   shared_preferences: ^2.0.12
   design_tools: ^0.3.0
+  fluttertoast: ^8.0.8
 
 dev_dependencies:
   flutter_test:
