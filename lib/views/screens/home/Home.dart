@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shopx/controllers/channel.dart';
+import 'package:shopx/controllers/ChannelController.dart';
 import 'package:get/get.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/instance_manager.dart';
