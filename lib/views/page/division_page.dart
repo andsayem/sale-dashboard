@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:shopx/controllers/DivisionController.dart';
+import 'package:shopx/controllers/DivisionController.dart'; 
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
-import 'package:get/instance_manager.dart';
+import 'package:get/instance_manager.dart';  
 import 'package:shopx/views/component/deviation.dart';
-
 class DivisionPage extends StatelessWidget {
   final DivisionController divisionController = Get.put(DivisionController());
   @override
@@ -21,9 +20,10 @@ class DivisionPage extends StatelessWidget {
               Icons.shopping_cart,
             ),
             onPressed: () {
-              // Navigator.of(context).push(MaterialPageRoute(
-              //   builder: (context) => Home(),
-              // ));
+                // Navigator.of(context).push(MaterialPageRoute(
+                //   builder: (context) => Home(),
+                // ));
+                // Test y
             },
           )
         ],
@@ -54,24 +54,22 @@ class DivisionPage extends StatelessWidget {
               if (divisionController.isLoading.value)
                 return Center(child: CircularProgressIndicator());
               else
-                return new Row(
-                    children: divisionController.divisionList
-                        .map((item) => new Text(item))
-                        .toList());
-              // return StaggeredGridView.countBuilder(
-              //   crossAxisCount: 3,
-              //   itemCount: divisionController.divisionList.length,
-              //   crossAxisSpacing: 16,
-              //   mainAxisSpacing: 16,
-              //   itemBuilder: (context, index) {
-              //     return   Column(
-              //       children: [
-              //         Text('divisionController divisionList length'),
-              //       ],
-              //     );
-              //   },
-              //   staggeredTileBuilder: (index) => StaggeredTile.fit(1),
-              // );
+              return new Row(children: divisionController.divisionList.map((item) => new Text(item)).toList());
+                // test2 
+                // return StaggeredGridView.countBuilder(
+                //   crossAxisCount: 3,
+                //   itemCount: divisionController.divisionList.length,
+                //   crossAxisSpacing: 16,
+                //   mainAxisSpacing: 16,
+                //   itemBuilder: (context, index) {
+                //     return   Column(
+                //       children: [
+                //         Text('divisionController divisionList length'),
+                //       ],
+                //     );
+                //   },
+                //   staggeredTileBuilder: (index) => StaggeredTile.fit(1),
+                // );
             }),
           )
         ],
