@@ -3,8 +3,10 @@ import 'package:shopx/routes/routes.dart';
 import 'package:shopx/views/screens/tabs/tabs.dart';
 import 'package:flutter/gestures.dart';
 import 'package:shopx/constants.dart';
+import 'package:get/get.dart';
 import 'package:shopx/widget/custom_alert_dialog.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:shopx/controllers/LoginController.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -114,29 +116,29 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
     );
 
-    final emailField = TextFormField(
-      controller: _emailController,
-      keyboardType: TextInputType.emailAddress,
-      style: TextStyle(
-        color: Colors.white,
-      ),
-      cursorColor: Colors.white,
-      decoration: InputDecoration(
-        focusedBorder: UnderlineInputBorder(
-          borderSide: BorderSide(
-            color: Colors.white,
-          ),
-        ),
-        hintText: "something@example.com",
-        labelText: "Email",
-        labelStyle: TextStyle(
-          color: Colors.white,
-        ),
-        hintStyle: TextStyle(
-          color: Colors.white,
-        ),
-      ),
-    );
+    // final emailField = TextFormField(
+    //   controller: _emailController,
+    //   keyboardType: TextInputType.emailAddress,
+    //   style: TextStyle(
+    //     color: Colors.white,
+    //   ),
+    //   cursorColor: Colors.white,
+    //   decoration: InputDecoration(
+    //     focusedBorder: UnderlineInputBorder(
+    //       borderSide: BorderSide(
+    //         color: Colors.white,
+    //       ),
+    //     ),
+    //     hintText: "something@example.com",
+    //     labelText: "Email",
+    //     labelStyle: TextStyle(
+    //       color: Colors.white,
+    //     ),
+    //     hintStyle: TextStyle(
+    //       color: Colors.white,
+    //     ),
+    //   ),
+    // );
 
     final passwordField2 = Container(
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
@@ -280,14 +282,36 @@ class _LoginScreenState extends State<LoginScreen> {
     // );
     final loginButton2 = MaterialButton(
       onPressed: () {
-        Scaffold.of(context).showSnackBar(new SnackBar(
-          content: new Text("Sending Message"),
-        ));
-        // var respone = CallApi().postData({ "username" : "dashboard" , "password" : "SNssgbd@2010"}, 'login.php');
-        //var respone = CallApi().getLoginData('login.php?username=dashboard&password=SNssgbd@2010');
-        // Navigator.of(context).push(MaterialPageRoute(
-        //   builder: (context) => Tabs(),
-        // ));
+        if (_emailController.text == '') {
+          Fluttertoast.showToast(
+              msg: "Please entry your Email/login ID",
+              toastLength: Toast.LENGTH_SHORT,
+              gravity: ToastGravity.CENTER,
+              timeInSecForIosWeb: 1);
+        } else if (_passwordController.text == '') {
+          Fluttertoast.showToast(
+              msg: "Please entry your password",
+              toastLength: Toast.LENGTH_SHORT,
+              gravity: ToastGravity.CENTER,
+              timeInSecForIosWeb: 1);
+        } else {
+          final LoginController loginController = Get.put(LoginController('pass'));
+          List<String> login = loginController.loginlList();
+          if (login != null) {
+            Navigator.of(context).push(MaterialPageRoute(
+              builder: (context) => Tabs(),
+            ));
+          }else{
+             Fluttertoast.showToast(
+              msg: "Invalid credential",
+              toastLength: Toast.LENGTH_LONG,
+              gravity: ToastGravity.CENTER,
+              timeInSecForIosWeb: 1);
+          }
+          // ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          //   content: Text('Test'),
+          // ));
+        }
       },
       child: Container(
         height: 50,
@@ -430,172 +454,5 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
       ),
     );
-    // return Scaffold(
-    //   body: SingleChildScrollView(
-    //     child: Container(
-    //       child: Column(
-    //         children: <Widget>[
-    //           Container(
-    //             height: 400,
-    //             decoration: BoxDecoration(
-    //                 image: DecorationImage(
-    //                     image: AssetImage('assets/images/background.png'),
-    //                     fit: BoxFit.fill)),
-    //             child: Stack(
-    //               children: <Widget>[
-    //                 Positioned(
-    //                   left: 30,
-    //                   width: 80,
-    //                   height: 200,
-    //                   child: Container(
-    //                     decoration: BoxDecoration(
-    //                         image: DecorationImage(
-    //                             image:
-    //                                 AssetImage('assets/images/light-1.png'))),
-    //                   ),
-    //                 ),
-    //                 Positioned(
-    //                   left: 140,
-    //                   width: 80,
-    //                   height: 150,
-    //                   child: Container(
-    //                     decoration: BoxDecoration(
-    //                         image: DecorationImage(
-    //                             image:
-    //                                 AssetImage('assets/images/light-1.png'))),
-    //                   ),
-    //                 ),
-    //                 Positioned(
-    //                   right: 40,
-    //                   width: 80,
-    //                   top: 40,
-    //                   height: 150,
-    //                   child: Container(
-    //                     decoration: BoxDecoration(
-    //                         image: DecorationImage(
-    //                             image:
-    //                                 AssetImage('assets/images/light-1.png'))),
-    //                   ),
-    //                 ),
-    //                 Positioned(
-    //                     child: Container(
-    //                   margin: EdgeInsets.only(top: 50),
-    //                   child: Center(
-    //                     child: Text(
-    //                       "Login",
-    //                       style: TextStyle(
-    //                           color: Colors.white,
-    //                           fontSize: 40,
-    //                           fontWeight: FontWeight.bold),
-    //                     ),
-    //                   ),
-    //                 )),
-    //               ],
-    //             ),
-    //           ),
-    //           Padding(
-    //             padding: EdgeInsets.all(30.0),
-    //             child: Column(
-    //               children: <Widget>[
-    //                 Container(
-    //                   padding: EdgeInsets.all(5),
-    //                   decoration: BoxDecoration(
-    //                       color: Colors.white,
-    //                       borderRadius: BorderRadius.circular(10),
-    //                       boxShadow: [
-    //                         BoxShadow(
-    //                             color: Color.fromRGBO(143, 148, 251, .2),
-    //                             blurRadius: 20.0,
-    //                             offset: Offset(0, 10))
-    //                       ]),
-    //                   child: Column(
-    //                     children: <Widget>[
-    //                       Container(
-    //                         padding: EdgeInsets.symmetric(
-    //                             horizontal: 20, vertical: 5),
-    //                         // width: size.width * 0.9,
-    //                         decoration: BoxDecoration(
-    //                             //borderRadius: BorderRadius.circular(29),
-    //                             //color:  kPrimaryLightColor,
-    //                             border: Border(
-    //                                 bottom: BorderSide(color: Colors.grey))),
-    //                         child: TextField(
-    //                           controller: _emailController,
-    //                           decoration: InputDecoration(
-    //                               border: InputBorder.none,
-    //                               icon: Icon(
-    //                                 Icons.person,
-    //                                 color: kPrimaryColor,
-    //                               ),
-    //                               hintText: "Email or Phone number",
-    //                               hintStyle:
-    //                                   TextStyle(color: Colors.grey[400])),
-    //                         ),
-    //                       ),
-    //                       Container(
-    //                         padding: EdgeInsets.all(8.0),
-    //                         child: TextField(
-    //                           obscureText: true,
-    //                           controller: _passwordController,
-    //                           decoration: InputDecoration(
-    //                               border: InputBorder.none,
-    //                               icon: Icon(
-    //                                 Icons.lock,
-    //                                 color: kPrimaryColor,
-    //                               ),
-    //                               suffixIcon: Icon(Icons.remove_red_eye,
-    //                                   color: kPrimaryColor),
-    //                               hintText: "Password",
-    //                               hintStyle:
-    //                                   TextStyle(color: Colors.grey[400])),
-    //                         ),
-    //                       )
-    //                     ],
-    //                   ),
-    //                 ),
-    //                 SizedBox(
-    //                   height: 30,
-    //                 ),
-    //                 GestureDetector(
-    //                   onTap: () {
-    //                     // var respone = CallApi().postData({ "username" : "dashboard" , "password" : "SNssgbd@2010"}, 'login.php');
-    //                     //var respone = CallApi().getLoginData('login.php?username=dashboard&password=SNssgbd@2010');
-    //                     Navigator.of(context).push(MaterialPageRoute(
-    //                       builder: (context) => Tabs(),
-    //                     ));
-    //                   },
-    //                   child: Container(
-    //                     height: 50,
-    //                     decoration: BoxDecoration(
-    //                         borderRadius: BorderRadius.circular(10),
-    //                         gradient: LinearGradient(colors: [
-    //                           kPrimaryLightColor,
-    //                           kPrimaryColor,
-    //                         ])),
-    //                     child: Center(
-    //                       child: Text(
-    //                         "Login",
-    //                         style: TextStyle(
-    //                             color: Colors.white,
-    //                             fontWeight: FontWeight.bold),
-    //                       ),
-    //                     ),
-    //                   ),
-    //                 ),
-    //                 SizedBox(
-    //                   height: 50,
-    //                 ),
-    //                 Text(
-    //                   "Forgot Password?",
-    //                   style: TextStyle(color: kPrimaryColor),
-    //                 )
-    //               ],
-    //             ),
-    //           )
-    //         ],
-    //       ),
-    //     ),
-    //   ),
-    // );
   }
 }

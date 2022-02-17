@@ -4,6 +4,7 @@ import 'package:http/http.dart' as http;
 import 'package:shopx/models/product.dart';
 import 'package:shopx/models/division.dart';
 import 'package:shopx/models/channel.dart';
+import 'package:shopx/models/Login.dart';
 import 'package:shopx/models/DashboardSummaryReport.dart';
 
 class RemoteServices {
@@ -49,6 +50,20 @@ class RemoteServices {
      if (response.statusCode == 200) {
       //return dashboardSummaryReportToJson(response.data);
     } else {
+      //show error message
+      return null;
+    }
+  }
+  //SNssgbd@2010
+  static Future<Login> fetchcLogin(password) async {
+    var response = await client.get(Uri.parse(
+        'https://dashboarddev.ssgbd.com/app_api/login.php?username=dashboard&password=' + password));
+     if (response.statusCode == 200) {
+        var jsonString = response.body; 
+        print(jsonString);
+      return loginFromJson(jsonString);
+    } else {
+       print('login error');
       //show error message
       return null;
     }
