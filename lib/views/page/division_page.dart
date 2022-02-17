@@ -59,6 +59,7 @@ class DivisionPage extends StatelessWidget {
                     children: divisionController.divisionList
                         .map((item) => new Text(item))
                         .toList());
+              // test2
               // return StaggeredGridView.countBuilder(
               //   crossAxisCount: 3,
               //   itemCount: divisionController.divisionList.length,
