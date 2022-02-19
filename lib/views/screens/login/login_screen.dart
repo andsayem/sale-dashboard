@@ -295,19 +295,22 @@ class _LoginScreenState extends State<LoginScreen> {
               gravity: ToastGravity.CENTER,
               timeInSecForIosWeb: 1);
         } else {
-          final LoginController loginController = Get.put(LoginController('pass'));
-          List<String> login = loginController.loginlList();
-          if (login != null) {
-            Navigator.of(context).push(MaterialPageRoute(
+          //final LoginController loginController = Get.put(LoginController('pass'));
+           Navigator.of(context).push(MaterialPageRoute(
               builder: (context) => Tabs(),
             ));
-          }else{
-             Fluttertoast.showToast(
-              msg: "Invalid credential",
-              toastLength: Toast.LENGTH_LONG,
-              gravity: ToastGravity.CENTER,
-              timeInSecForIosWeb: 1);
-          }
+        // List<String> login = loginController.loginlList();
+          // if (login != null) {
+          //   Navigator.of(context).push(MaterialPageRoute(
+          //     builder: (context) => Tabs(),
+          //   ));
+          // }else{
+          //    Fluttertoast.showToast(
+          //     msg: "Invalid credential",
+          //     toastLength: Toast.LENGTH_LONG,
+          //     gravity: ToastGravity.CENTER,
+          //     timeInSecForIosWeb: 1);
+          // }
           // ScaffoldMessenger.of(context).showSnackBar(SnackBar(
           //   content: Text('Test'),
           // ));
