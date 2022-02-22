@@ -20,12 +20,13 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage>
     with SingleTickerProviderStateMixin {
-  final ChannelController channelController = Get.put(ChannelController());
 
   TabController _tabController;
+  final ChannelController channelController = Get.put(ChannelController());
 
   @override
   void initState() {
+    
     _tabController = TabController(length: 3, vsync: this);
     super.initState();
   }
@@ -115,92 +116,7 @@ class _HomePageState extends State<HomePage>
           ),
         ],
       ),
-      // Container(
-      //   //child: Text('test'),
-      //   child: Column(
-      //       crossAxisAlignment: CrossAxisAlignment.stretch,
-      //       children: <Widget>[
-      //         DefaultTabController(
-      //             length: 3, // length of tabs
-      //             initialIndex: 0,
-      //             child: Column(
-      //                 crossAxisAlignment: CrossAxisAlignment.stretch,
-      //                 children: <Widget>[
-      //                   Container(
-      //                     child: TabBar(
-      //                       //isScrollable: true,
-      //                       labelStyle:
-      //                           Theme.of(context).tabBarTheme.labelStyle,
-      //                       labelColor: kPrimaryColor,
-      //                       indicatorWeight: 5,
-      //                       unselectedLabelStyle: Theme.of(context)
-      //                           .tabBarTheme
-      //                           .unselectedLabelStyle,
-      //                       unselectedLabelColor: Theme.of(context)
-      //                           .tabBarTheme
-      //                           .unselectedLabelColor,
-      //                       indicatorColor: kPrimaryColor,
-      //                       tabs: [
-      //                         Tab(text: 'Summary'),
-      //                         Tab(text: 'Channel'),
-      //                         Tab(text: 'Channel Head'),
-      //                         // Tab(text: 'Tab 4'),
-      //                       ],
-      //                     ),
-      //                   ),
-      //                   Container(
-      //                       height: 500, //height of TabBarView
-      //                       decoration: BoxDecoration(
-      //                           border: Border(
-      //                               top: BorderSide(
-      //                                   color: Colors.grey, width: 0.5))),
-      //                       child: TabBarView(children: <Widget>[
-      //                         Container(
-      //                           child: Center(
-      //                             child: GridView.count(
-      //                               primary: false,
-      //                               padding: const EdgeInsets.all(1),
-      //                               crossAxisCount: 3,
-      //                               children: <Widget>[
-      //                                 for (var i in channe)
-      //                                   presentCard(context, i.toString(),
-      //                                       'Dashboard', Icons.light)
-      //                               ],
-      //                             ),
-      //                           ),
-      //                         ),
-      //                         Container(
-      //                           child: Center(
-      //                             child: GridView.count(
-      //                               primary: false,
-      //                               padding: const EdgeInsets.all(1),
-      //                               crossAxisCount: 3,
-      //                               children: <Widget>[
-      //                                 for (var i in channe)
-      //                                   presentCard(context, i.toString(),
-      //                                       'Channel', Icons.light)
-      //                               ],
-      //                             ),
-      //                           ),
-      //                         ),
-      //                         Container(
-      //                           child: Center(
-      //                             child: GridView.count(
-      //                               primary: false,
-      //                               padding: const EdgeInsets.all(1),
-      //                               crossAxisCount: 3,
-      //                               children: <Widget>[
-      //                                 for (var i in channe)
-      //                                   presentCard(context, i.toString(),
-      //                                       'Channel Head', Icons.light)
-      //                               ],
-      //                             ),
-      //                           ),
-      //                         ),
-      //                       ]))
-      //                 ])),
-      //       ]),
-      // ),
+     
     );
   }
 
@@ -233,23 +149,14 @@ class _HomePageState extends State<HomePage>
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // Text(
-                  //   title,
-                  //   style: TextStyle(
-                  //     color: Colors.white,
-                  //     fontWeight: FontWeight.bold,
-                  //     fontSize: 15,
-                  //   ),
-                  // ),
+                   
                   FlatButton(
                     padding: EdgeInsets.all(1),
                     onPressed: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => Dashboard_details(),
-                      ));
+                      Navigator.of(context).push(MaterialPageRoute(builder: (context) => Dashboard_details(title))); 
                     },
                     child: Text(
-                      title,
+                      title  ,
                       style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
@@ -260,9 +167,7 @@ class _HomePageState extends State<HomePage>
                   FlatButton(
                     padding: EdgeInsets.all(0),
                     onPressed: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => Dashboard_details(),
-                      ));
+                       Navigator.of(context).push(MaterialPageRoute(builder: (context) => Dashboard_details(title)));
                     },
                     child: Text(
                       subtext,
