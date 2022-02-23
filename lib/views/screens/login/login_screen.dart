@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:shopx/routes/routes.dart';
+//import 'package:shopx/routes/routes.dart';
 import 'package:shopx/views/screens/tabs/tabs.dart';
-import 'package:flutter/gestures.dart';
+//import 'package:flutter/gestures.dart';
 import 'package:shopx/constants.dart';
 import 'package:get/get.dart';
 import 'package:shopx/widget/custom_alert_dialog.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:shopx/controllers/LoginController.dart';
+import 'package:shopx/views/screens/password/Password.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -14,9 +15,10 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  final _formKey = GlobalKey<FormState>();
   TextEditingController _emailController = TextEditingController();
+  final _formKey = GlobalKey<FormState>();
   TextEditingController _passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     final mq = MediaQuery.of(context);
@@ -214,7 +216,7 @@ class _LoginScreenState extends State<LoginScreen> {
     // );
 
     final fields = Padding(
-      padding: EdgeInsets.only(top: 30.0),
+      padding: EdgeInsets.only(top: 0.0),
       child: Column(children: <Widget>[
         Container(
           padding: EdgeInsets.all(5),
@@ -295,28 +297,27 @@ class _LoginScreenState extends State<LoginScreen> {
               gravity: ToastGravity.CENTER,
               timeInSecForIosWeb: 1);
         } else {
-          final LoginController loginController = Get.put(LoginController('pass'));
+          final LoginController loginController =
+              Get.put(LoginController('pass'));
           List<String> login = loginController.loginlList();
           if (login != null) {
             Navigator.of(context).push(MaterialPageRoute(
               builder: (context) => Tabs(),
             ));
-          }else{
-             Fluttertoast.showToast(
-              msg: "Invalid credential",
-              toastLength: Toast.LENGTH_LONG,
-              gravity: ToastGravity.CENTER,
-              timeInSecForIosWeb: 1);
+          } else {
+            Fluttertoast.showToast(
+                msg: "Invalid credential",
+                toastLength: Toast.LENGTH_LONG,
+                gravity: ToastGravity.CENTER,
+                timeInSecForIosWeb: 1);
           }
-          // ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          //   content: Text('Test'),
-          // ));
         }
       },
       child: Container(
-        height: 50,
+        height: 40,
+        width: 60000,
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(20),
             gradient: LinearGradient(colors: [
               kPrimaryLightColor,
               kPrimaryColor,
@@ -329,45 +330,41 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
       ),
     );
+
+    final loginButton3 = MaterialButton(
+      onPressed: () {
+        Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) => Password(),
+        ));
+      },
+      child: Container(
+        height: 40,
+        width: 60000,
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20),
+            gradient: LinearGradient(colors: [
+              kPrimaryLightColor,
+              kPrimaryColor,
+            ])),
+        child: Center(
+          child: Text(
+            "Forgot Password?",
+            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          ),
+        ),
+      ),
+    );
+
     final bottom = Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: <Widget>[
         loginButton2,
-        // Padding(
-        //   padding: EdgeInsets.all(8.0),
-        // ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            Text(
-              "Not a member?",
-              style: Theme.of(context).textTheme.subtitle1.copyWith(
-                    color: Colors.white,
-                  ),
-            ),
-            MaterialButton(
-              onPressed: () {
-                Navigator.of(context).pushNamed(AppRoutes.authRegister);
-              },
-              child: Text(
-                "Sign Up",
-                style: Theme.of(context).textTheme.subtitle1.copyWith(
-                      color: Colors.white,
-                      decoration: TextDecoration.underline,
-                    ),
-              ),
-            ),
-          ],
-        ),
-        Text(
-          "Forgot Password?",
-          style: TextStyle(color: kPrimaryColor),
-        )
+        loginButton3,
       ],
     );
+
     return Scaffold(
-      // backgroundColor: Color(0xff8c52ff),
       body: SingleChildScrollView(
         child: Container(
           child: Column(
@@ -422,7 +419,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           "Login",
                           style: TextStyle(
                               color: Colors.white,
-                              fontSize: 40,
+                              fontSize: 50,
                               fontWeight: FontWeight.bold),
                         ),
                       ),

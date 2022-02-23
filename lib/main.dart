@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:shopx/views/homepage.dart';
-import 'package:shopx/views/screens/login/login_screen.dart'; 
-import 'package:shopx/routes/routes.dart';
-import 'package:shopx/views/opening_screen.dart';
+// import 'package:shopx/views/homepage.dart';
 import 'package:shopx/views/screens/login/login_screen.dart';
-import 'constants.dart';
+import 'package:shopx/routes/routes.dart';
+// import 'package:shopx/views/opening_screen.dart';
+// import 'constants.dart';
 
 GlobalKey globalKey = GlobalKey();
 void main() {
@@ -14,13 +13,13 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-     return MaterialApp(
+    return MaterialApp(
       title: 'Opening View Demo',
       routes: AppRoutes.define(),
       key: globalKey,
       home: LoginScreen(),
     );
-    // return MaterialApp(  
+    // return MaterialApp(
     //   theme: ThemeData(
     //      primarySwatch: CustomeTheme.primaryLight,
     //     visualDensity: VisualDensity.adaptivePlatformDensity,
@@ -53,7 +52,6 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-         
         title: Text(widget.title),
       ),
       body: Center(
@@ -71,10 +69,9 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ),
+          onPressed: _incrementCounter,
+          tooltip: 'Increment',
+          child: Icon(Icons.add)),
     );
   }
 }

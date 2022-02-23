@@ -1,9 +1,10 @@
-// import 'package:shopx/api/my_api.dart'; 
+// import 'package:shopx/api/my_api.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:get/get.dart';  
-import 'package:shopx/controllers/DashboardSummaryReportController.dart';  
+import 'package:get/get.dart';
+import 'package:shopx/controllers/DashboardSummaryReportController.dart';
+
 //import 'package:shopx/controllers/DashboardSummaryReportController.dart';
 class HomeItem extends StatelessWidget {
   @override
@@ -13,37 +14,35 @@ class HomeItem extends StatelessWidget {
 }
 
 class ItemPage extends StatefulWidget {
-    final DashboardSummaryReportController dashboard_summary_reportController = Get.put(DashboardSummaryReportController());
+  final DashboardSummaryReportController dashboard_summary_reportController =
+      Get.put(DashboardSummaryReportController());
   @override
   _ItemPageState createState() => _ItemPageState();
 }
 
 class _ItemPageState extends State<ItemPage> {
-   final DashboardSummaryReportController summary_reportController = Get.put(DashboardSummaryReportController());
+  final DashboardSummaryReportController summary_reportController =
+      Get.put(DashboardSummaryReportController());
   @override
   Widget build(BuildContext context) {
-    
-    List<String> summary =
-        summary_reportController.summaryReportList();
+    List<String> summary = summary_reportController.summaryReportList();
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
-        
-          child: Column(
-            children:<Widget> [
-                for (var i in summary)
-                 Text('dea')
-                    
-              // Container(
-              //     child: <Widget>[] Text('Test'),
-              // )
-            ],
-          ),
+        child: Column(
+          children: <Widget>[
+            for (var i in summary) Text('dea')
+
+            // Container(
+            //     child: <Widget>[] Text('Test'),
+            // )
+          ],
+        ),
         // child: Container(
         //   child: ListView(
         //     padding: EdgeInsets.only(
         //         top: 10.0, bottom: 20.0, left: 10.0, right: 10.0),
-        //     children: <Widget>[ 
+        //     children: <Widget>[
         //       Container(
         //           width: double.infinity,
         //             child: Text('Dashboard Report Details ',
@@ -64,7 +63,7 @@ class _ItemPageState extends State<ItemPage> {
         //                  headingRowColor:
         //                 MaterialStateColor.resolveWith((states) => Colors.blue),
         //                 columns: const <DataColumn>[
-                          
+
         //                   DataColumn( label: Text( 'SL', style: TextStyle( fontSize: 18),),),
         //                   DataColumn( label: Text( 'Cumulative', style: TextStyle( fontSize: 18),),),
         //                   DataColumn( label: Text( 'Achiv.', style: TextStyle( fontSize: 18),),),
@@ -73,10 +72,10 @@ class _ItemPageState extends State<ItemPage> {
         //                   DataColumn( label: Text( 'Achiv. %', style: TextStyle( fontSize: 18),),),
         //                   DataColumn( label: Text( 'Target', style: TextStyle( fontSize: 18),),),
         //                   DataColumn( label: Text( 'Rest Amount', style: TextStyle( fontSize: 18),),),
-                           
+
         //                 ],
         //                 rows: const <DataRow>[
-                         
+
         //                   DataRow(
         //                     cells: <DataCell>[
         //                       DataCell(Text('1')),
@@ -88,7 +87,7 @@ class _ItemPageState extends State<ItemPage> {
         //                       DataCell(Text('234')),
         //                       DataCell(Text('234')),
         //                     ],
-                            
+
         //                   ),
         //                     DataRow(
         //                     cells: <DataCell>[
@@ -101,7 +100,7 @@ class _ItemPageState extends State<ItemPage> {
         //                       DataCell(Text('234')),
         //                       DataCell(Text('234')),
         //                     ],
-                            
+
         //                   ),
         //                     DataRow(
         //                     cells: <DataCell>[
@@ -114,15 +113,14 @@ class _ItemPageState extends State<ItemPage> {
         //                       DataCell(Text('234')),
         //                       DataCell(Text('234')),
         //                     ],
-                            
+
         //                   ),
-                           
+
         //                 ],
         //               ))),
         //     ],
         //   ),
         // ),
-      
       ),
     );
   }
