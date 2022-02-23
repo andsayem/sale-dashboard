@@ -20,13 +20,11 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage>
     with SingleTickerProviderStateMixin {
-
   TabController _tabController;
   final ChannelController channelController = Get.put(ChannelController());
 
   @override
   void initState() {
-    
     _tabController = TabController(length: 3, vsync: this);
     super.initState();
   }
@@ -116,7 +114,6 @@ class _HomePageState extends State<HomePage>
           ),
         ],
       ),
-     
     );
   }
 
@@ -149,14 +146,14 @@ class _HomePageState extends State<HomePage>
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                   
                   FlatButton(
                     padding: EdgeInsets.all(1),
                     onPressed: () {
-                      Navigator.of(context).push(MaterialPageRoute(builder: (context) => Dashboard_details(title))); 
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => Dashboard_details(title)));
                     },
                     child: Text(
-                      title  ,
+                      title,
                       style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
@@ -167,34 +164,14 @@ class _HomePageState extends State<HomePage>
                   FlatButton(
                     padding: EdgeInsets.all(0),
                     onPressed: () {
-                       Navigator.of(context).push(MaterialPageRoute(builder: (context) => Dashboard_details(title)));
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => Dashboard_details(title)));
                     },
                     child: Text(
                       subtext,
                     ),
                     textColor: Colors.white70,
                   ),
-                  // ElevatedButton(
-                  //     style: ElevatedButton.styleFrom(
-                  //       primary: kPrimaryColor, // background
-                  //       padding: EdgeInsets.all(0),
-                  //       onPrimary: Colors.yellow, // foreground
-                  //     ),
-                  //     child: Text(
-
-                  //       count,
-                  //       style: TextStyle(
-                  //         color: Colors.white,
-                  //         fontSize: 10,
-                  //       ),
-                  //     ),
-                  //     onPressed: () {
-                  //       Navigator.of(context).push(MaterialPageRoute(
-                  //         builder: (context) => Dashboard_details(),
-                  //       ));
-                  //       // Navigate back to first route when tapped.
-                  //     }),
-                  // SizedBox(height: 20),
                 ],
               ),
             ),

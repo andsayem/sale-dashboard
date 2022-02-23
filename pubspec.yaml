@@ -37,6 +37,7 @@ dependencies:
   shared_preferences: ^2.0.12
   design_tools: ^0.3.0
   fluttertoast: ^8.0.8
+  flutter_phone_direct_caller: ^2.1.0
 
 dev_dependencies:
   flutter_test:

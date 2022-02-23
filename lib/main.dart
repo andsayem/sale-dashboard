@@ -4,6 +4,7 @@ import 'package:shopx/views/screens/login/login_screen.dart';
 import 'package:shopx/routes/routes.dart';
 import 'package:shopx/views/opening_screen.dart';
 import 'package:shopx/views/screens/login/login_screen.dart';
+import 'package:shopx/Login/loginScreen.dart';
 import 'constants.dart';
 
 GlobalKey globalKey = GlobalKey();
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
       title: 'Opening View Demo',
       routes: AppRoutes.define(),
       key: globalKey,
-      home: LoginScreen(),
+      home: LogIn(),
     );
     // return MaterialApp(  
     //   theme: ThemeData(
