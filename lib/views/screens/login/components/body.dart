@@ -1,9 +1,9 @@
-import 'package:shopx/views/screens/tabs/tabs.dart';
-import 'package:shopx/views/page/people_page.dart';
+import 'package:dashboard/views/screens/tabs/tabs.dart';
+import 'package:dashboard/views/page/people_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
-import 'package:shopx/constants.dart';
-//import 'package:shopx/api/my_api.dart';
+import 'package:dashboard/constants.dart';
+//import 'package:dashboard/api/my_api.dart';
 
 class Body extends StatelessWidget {
   @override

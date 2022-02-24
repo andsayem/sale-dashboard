@@ -1,13 +1,18 @@
-import 'package:shopx/constants.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:dashboard/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:shopx/views/page/division_page.dart';
-import 'package:shopx/views/page/people_page.dart';
-import 'package:shopx/views/page/user_page.dart';
-import 'package:shopx/views/homepage.dart';
-import 'package:shopx/app_theme.dart';
+import 'package:dashboard/views/page/division_page.dart';
+import 'package:dashboard/views/page/people_page.dart';
+import 'package:dashboard/views/page/user_page.dart';
+import 'package:dashboard/views/homepage.dart';
+import 'package:dashboard/app_theme.dart';
+
+import '../views/screens/login/login_screen.dart';
 
 class NavigationDrawerWidget extends StatelessWidget {
   final padding = EdgeInsets.symmetric(horizontal: 20);
+
+  BuildContext get context => null;
   @override
   Widget build(BuildContext context) {
     final name = 'Abu Sayed';
@@ -110,9 +115,7 @@ class NavigationDrawerWidget extends StatelessWidget {
                           Icons.power_settings_new,
                           color: Colors.red,
                         ),
-                        onTap: () {
-                          // onTapped();
-                        },
+                        onTap:  logout ,
                       ),
                       SizedBox(
                         height: MediaQuery.of(context).padding.bottom,
@@ -222,5 +225,16 @@ class NavigationDrawerWidget extends StatelessWidget {
         ));
         break;
     }
+  }
+    void logout() async{ 
+         SharedPreferences localStorage = await SharedPreferences.getInstance();
+         //localStorage.remove('user');
+         localStorage.remove('token');
+          Navigator.push(
+        context,
+        new MaterialPageRoute(
+            builder: (context) => LoginScreen()));
+    //  }
+     
   }
 }

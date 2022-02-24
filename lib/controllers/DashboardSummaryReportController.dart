@@ -1,6 +1,6 @@
 import 'package:get/state_manager.dart';
-import 'package:shopx/models/DashboardSummaryReport.dart';
-import 'package:shopx/services/remote_services.dart';
+import 'package:dashboard/models/DashboardSummaryReport.dart';
+import 'package:dashboard/services/remote_services.dart';
 
 class DashboardSummaryReportController  extends GetxController {
   var isLoading = true.obs;

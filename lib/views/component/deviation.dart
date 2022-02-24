@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:shopx/models/division.dart';
+import 'package:dashboard/models/division.dart';
 
 class DeviationComponent extends StatelessWidget {
   const DeviationComponent(deviation);

@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:shopx/main.dart';
+import 'package:dashboard/main.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 

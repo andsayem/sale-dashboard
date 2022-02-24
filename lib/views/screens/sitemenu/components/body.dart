@@ -1,7 +1,7 @@
-import 'package:shopx/views/screens/home/Home.dart'; 
+import 'package:dashboard/views/screens/home/Home.dart'; 
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
-import 'package:shopx/constants.dart';
+import 'package:dashboard/constants.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 class Body extends StatelessWidget {
   @override

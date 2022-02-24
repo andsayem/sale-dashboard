@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:shopx/controllers/DivisionController.dart';
+import 'package:dashboard/controllers/DivisionController.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
 import 'package:get/instance_manager.dart';
-import 'package:shopx/views/component/deviation.dart';
+import 'package:dashboard/views/component/deviation.dart';
 
 class DivisionPage extends StatelessWidget {
   final DivisionController divisionController = Get.put(DivisionController());

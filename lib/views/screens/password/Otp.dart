@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:shopx/views/screens/password/Otp_form.dart';
-import 'package:shopx/constants.dart';
-import 'package:shopx/views/screens/password/Confirmation.dart';
+import 'package:dashboard/views/screens/password/Otp_form.dart';
+import 'package:dashboard/constants.dart';
+import 'package:dashboard/views/screens/password/Confirmation.dart';
 
 class Otp extends StatelessWidget {
   @override

@@ -1,6 +1,6 @@
 import 'package:get/state_manager.dart';
-import 'package:shopx/models/division.dart';
-import 'package:shopx/services/remote_services.dart';
+import 'package:dashboard/models/division.dart';
+import 'package:dashboard/services/remote_services.dart';
 
 class DivisionController  extends GetxController {
   var isLoading = true.obs;

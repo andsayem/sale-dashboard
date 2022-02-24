@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-// import 'package:shopx/views/homepage.dart';
-import 'package:shopx/views/screens/login/login_screen.dart';
-//import 'package:shopx/Login/loginScreen.dart';
-import 'package:shopx/views/screens/tabs/tabs.dart';
+// import 'package:dashboard/views/homepage.dart';
+import 'package:dashboard/views/screens/login/login_screen.dart';
+//import 'package:dashboard/Login/loginScreen.dart';
+import 'package:dashboard/views/screens/tabs/tabs.dart';
 //import 'constants.dart';
-//import 'package:shopx/routes/routes.dart';
+//import 'package:dashboard/routes/routes.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 GlobalKey globalKey = GlobalKey(); 
 

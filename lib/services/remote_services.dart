@@ -1,11 +1,11 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
-import 'package:shopx/models/product.dart';
-import 'package:shopx/models/division.dart';
-import 'package:shopx/models/channel.dart';
-import 'package:shopx/models/Login.dart';
-import 'package:shopx/models/DashboardSummaryReport.dart';
+import 'package:dashboard/models/product.dart';
+import 'package:dashboard/models/division.dart';
+import 'package:dashboard/models/channel.dart';
+import 'package:dashboard/models/Login.dart';
+import 'package:dashboard/models/DashboardSummaryReport.dart';
 
 class RemoteServices {
   static var client = http.Client();

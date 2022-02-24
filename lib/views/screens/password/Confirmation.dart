@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shopx/constants.dart';
+import 'package:dashboard/constants.dart';
 
 class Confirmation extends StatelessWidget {
   @override

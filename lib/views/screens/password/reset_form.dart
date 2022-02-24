@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shopx/constants.dart';
+import 'package:dashboard/constants.dart';
 // import 'package:login_signup_ui_starter/theme.dart';
 
 class ResetForm extends StatelessWidget {

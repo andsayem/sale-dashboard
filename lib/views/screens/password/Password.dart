@@ -1,9 +1,9 @@
 // import 'package:flutter/gestures.dart';
 // import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:shopx/views/screens/password/reset_form.dart';
-import 'package:shopx/views/screens/password/Otp.dart';
-import 'package:shopx/constants.dart';
+import 'package:dashboard/views/screens/password/reset_form.dart';
+import 'package:dashboard/views/screens/password/Otp.dart';
+import 'package:dashboard/constants.dart';
 
 class Password extends StatelessWidget {
   @override

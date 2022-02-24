@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:shopx/views/screens/login/login_screen.dart';
-import 'package:shopx/views/screens/tabs/tabs.dart';
+import 'package:dashboard/views/screens/login/login_screen.dart';
+import 'package:dashboard/views/screens/tabs/tabs.dart';
 // import 'package:openingscreendemo/views/login_screen.dart';
 // import 'package:openingscreendemo/views/menu.dart';
 //import 'package:openingscreendemo/views/register_screen.dart';

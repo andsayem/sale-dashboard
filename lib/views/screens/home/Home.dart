@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:shopx/controllers/ChannelController.dart';
+import 'package:dashboard/controllers/ChannelController.dart';
 import 'package:get/get.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/instance_manager.dart';
-import 'package:shopx/constants.dart';
-import 'package:shopx/views/screens/dashboard_details/Dashboard_details.dart';
+import 'package:dashboard/constants.dart';
+import 'package:dashboard/views/screens/dashboard_details/Dashboard_details.dart';
 
 class Home extends StatelessWidget {
   @override

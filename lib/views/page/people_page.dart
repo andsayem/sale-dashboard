@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shopx/views/homepage.dart';
+import 'package:dashboard/views/homepage.dart';
 class PeoplePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Scaffold(

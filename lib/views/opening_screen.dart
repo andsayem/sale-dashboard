@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shopx/routes/routes.dart';
+import 'package:dashboard/routes/routes.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class OpeningView extends StatefulWidget {

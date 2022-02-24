@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:shopx/views/screens/tabs/tabs.dart';
-import 'package:shopx/constants.dart';
+import 'package:dashboard/views/screens/tabs/tabs.dart';
+import 'package:dashboard/constants.dart';
 import 'package:get/get.dart';
-import 'package:shopx/widget/custom_alert_dialog.dart';
+import 'package:dashboard/widget/custom_alert_dialog.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:shopx/controllers/LoginController.dart';
-import 'package:shopx/views/screens/password/Password.dart';
-import 'package:shopx/api/api.dart';
+import 'package:dashboard/controllers/LoginController.dart';
+import 'package:dashboard/views/screens/password/Password.dart';
+import 'package:dashboard/api/api.dart';
 import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
 

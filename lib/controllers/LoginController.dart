@@ -1,5 +1,5 @@
 import 'package:get/state_manager.dart'; 
-import 'package:shopx/services/remote_services.dart';
+import 'package:dashboard/services/remote_services.dart';
 
 class LoginController  extends GetxController {
   var isLoading = true.obs;
