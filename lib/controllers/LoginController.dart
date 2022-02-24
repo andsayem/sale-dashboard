@@ -4,7 +4,7 @@ import 'package:shopx/services/remote_services.dart';
 class LoginController  extends GetxController {
   var isLoading = true.obs;
   var pass = 'SNssgbd@2010' ;
-  var loginlList = List<String>().obs;
+  var loginlList = List<String>();
 
   LoginController(String pass);
  
@@ -12,17 +12,17 @@ class LoginController  extends GetxController {
   @override
   void onInit() {
     // print('login');
-    fetchLogin();
-    super.onInit();
+   // fetchLogin();
+   // super.onInit();
   }
 
   void fetchLogin() async {
     try {
       isLoading(true);
       var login = await RemoteServices.fetchcLogin(pass);
-      if (login != null) {
-        loginlList.value = login as List<String>;
-      }
+      // if (login != null) {
+      //   loginlList.value = login  ;
+      // }
     } finally {
       isLoading(false);
     }

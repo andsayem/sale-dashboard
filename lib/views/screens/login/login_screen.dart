@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
-//import 'package:shopx/routes/routes.dart';
 import 'package:shopx/views/screens/tabs/tabs.dart';
-//import 'package:flutter/gestures.dart';
 import 'package:shopx/constants.dart';
 import 'package:get/get.dart';
 import 'package:shopx/widget/custom_alert_dialog.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:shopx/controllers/LoginController.dart';
 import 'package:shopx/views/screens/password/Password.dart';
+import 'package:shopx/api/api.dart';
+import 'dart:convert';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -15,10 +16,14 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  TextEditingController _emailController = TextEditingController();
-  final _formKey = GlobalKey<FormState>();
-  TextEditingController _passwordController = TextEditingController();
+  bool _isLoading = false;
+  TextEditingController mailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  ScaffoldState scaffoldState;
 
+  //TextEditingController _emailController = TextEditingController();
+  final _formKey = GlobalKey<FormState>();
+  //TextEditingController _passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     final mq = MediaQuery.of(context);
@@ -100,7 +105,7 @@ class _LoginScreenState extends State<LoginScreen> {
           //color:  kPrimaryLightColor,
           border: Border(bottom: BorderSide(color: Colors.grey))),
       child: TextField(
-        controller: _emailController,
+        controller: mailController,
         keyboardType: TextInputType.emailAddress,
         decoration: InputDecoration(
             border: InputBorder.none,
@@ -117,41 +122,12 @@ class _LoginScreenState extends State<LoginScreen> {
             hintStyle: TextStyle(color: Colors.grey[400])),
       ),
     );
-
-    // final emailField = TextFormField(
-    //   controller: _emailController,
-    //   keyboardType: TextInputType.emailAddress,
-    //   style: TextStyle(
-    //     color: Colors.white,
-    //   ),
-    //   cursorColor: Colors.white,
-    //   decoration: InputDecoration(
-    //     focusedBorder: UnderlineInputBorder(
-    //       borderSide: BorderSide(
-    //         color: Colors.white,
-    //       ),
-    //     ),
-    //     hintText: "something@example.com",
-    //     labelText: "Email",
-    //     labelStyle: TextStyle(
-    //       color: Colors.white,
-    //     ),
-    //     hintStyle: TextStyle(
-    //       color: Colors.white,
-    //     ),
-    //   ),
-    // );
-
     final passwordField2 = Container(
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-      // width: size.width * 0.9,
-      decoration: BoxDecoration(
-          //borderRadius: BorderRadius.circular(29),
-          //color:  kPrimaryLightColor,
-          border: Border(bottom: BorderSide(color: Colors.grey))),
+      decoration:
+          BoxDecoration(border: Border(bottom: BorderSide(color: Colors.grey))),
       child: TextField(
-        controller: _passwordController,
-        // keyboardType: TextInputType.emailAddress,
+        controller: passwordController,
         decoration: InputDecoration(
             border: InputBorder.none,
             focusedBorder: UnderlineInputBorder(
@@ -167,54 +143,6 @@ class _LoginScreenState extends State<LoginScreen> {
             hintStyle: TextStyle(color: Colors.grey[400])),
       ),
     );
-
-    // final passwordField = Column(
-    //   children: <Widget>[
-    //     TextFormField(
-    //       obscureText: true,
-    //       controller: _passwordController,
-    //       style: TextStyle(
-    //         color: Colors.white,
-    //       ),
-    //       cursorColor: Colors.white,
-    //       decoration: InputDecoration(
-    //         focusedBorder: UnderlineInputBorder(
-    //           borderSide: BorderSide(
-    //             color: Colors.white,
-    //           ),
-    //         ),
-    //         hintText: "password",
-    //         labelText: "Password",
-    //         labelStyle: TextStyle(
-    //           color: Colors.white,
-    //         ),
-    //         hintStyle: TextStyle(
-    //           color: Colors.white,
-    //         ),
-    //       ),
-    //     ),
-    //     Padding(
-    //       padding: EdgeInsets.all(2.0),
-    //     ),
-    //     Row(
-    //       mainAxisAlignment: MainAxisAlignment.end,
-    //       children: <Widget>[
-    //         MaterialButton(
-    //             child: Text(
-    //               "Forgot Password",
-    //               style: Theme.of(context)
-    //                   .textTheme
-    //                   .caption
-    //                   .copyWith(color: Colors.white),
-    //             ),
-    //             onPressed: () {
-    //               showAlertDialog(context);
-    //             }),
-    //       ],
-    //     ),
-    //   ],
-    // );
-
     final fields = Padding(
       padding: EdgeInsets.only(top: 0.0),
       child: Column(children: <Widget>[
@@ -234,104 +162,34 @@ class _LoginScreenState extends State<LoginScreen> {
             passwordField2,
           ]),
         ),
-      ]
-
-          // mainAxisAlignment: MainAxisAlignment.start,
-          // children: <Widget>[
-          //   emailField,
-          //   passwordField,
-          // ],
-          ),
+      ]),
     );
 
-    // final loginButton = Material(
-    //   elevation: 5.0,
-    //   borderRadius: BorderRadius.circular(25.0),
-    //   color: Colors.white,
-    //   child: MaterialButton(
-    //     minWidth: mq.size.width / 1.2,
-    //     padding: EdgeInsets.fromLTRB(10.0, 15.0, 10.0, 15.0),
-    //     child: Text(
-    //       "Login",
-    //       textAlign: TextAlign.center,
-    //       style: TextStyle(
-    //         fontSize: 20.0,
-    //         color: Colors.black,
-    //         fontWeight: FontWeight.bold,
-    //       ),
-    //     ),
-    //     onPressed: () async {
-    //       try {
-    //         // FirebaseUser user =
-    //         //     (await FirebaseAuth.instance.signInWithEmailAndPassword(
-    //         //   email: _emailController.text,
-    //         //   password: _passwordController.text,
-    //         // ))
-    //         //         .user;
-    //         // if (user != null) {
-    //         //   SharedPreferences prefs = await SharedPreferences.getInstance();
-    //         //   prefs.setString('displayName', user.displayName);
-    //         //   Navigator.of(context).pushNamed(AppRoutes.menu);
-    //         // }
-    //       } catch (e) {
-    //         print(e);
-    //         _emailController.text = "";
-    //         _passwordController.text = "";
-    //         // TODO: AlertDialog with error
-    //       }
-    //     },
-    //   ),
-    // );
-    final loginButton2 = MaterialButton(
-      onPressed: () {
-        if (_emailController.text == '') {
-          Fluttertoast.showToast(
-              msg: "Please entry your Email/login ID",
-              toastLength: Toast.LENGTH_SHORT,
-              gravity: ToastGravity.CENTER,
-              timeInSecForIosWeb: 1);
-        } else if (_passwordController.text == '') {
-          Fluttertoast.showToast(
-              msg: "Please entry your password",
-              toastLength: Toast.LENGTH_SHORT,
-              gravity: ToastGravity.CENTER,
-              timeInSecForIosWeb: 1);
-        } else {
-          final LoginController loginController =
-              Get.put(LoginController('pass'));
-          List<String> login = loginController.loginlList();
-          if (login != null) {
-            Navigator.of(context).push(MaterialPageRoute(
-              builder: (context) => Tabs(),
-            ));
-          } else {
-            Fluttertoast.showToast(
-                msg: "Invalid credential",
-                toastLength: Toast.LENGTH_LONG,
-                gravity: ToastGravity.CENTER,
-                timeInSecForIosWeb: 1);
-          }
-        }
-      },
-      child: Container(
-        height: 40,
-        width: 60000,
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
-            gradient: LinearGradient(colors: [
-              kPrimaryLightColor,
-              kPrimaryColor,
-            ])),
-        child: Center(
+    final loginButton = Padding(
+      padding: const EdgeInsets.all(10.0),
+      child: FlatButton(
+        child: Padding(
+          padding: EdgeInsets.only(top: 8, bottom: 8, left: 10, right: 10),
           child: Text(
-            "Login",
-            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+            _isLoading ? 'Loging...' : 'Login',
+            textDirection: TextDirection.ltr,
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 15.0,
+              decoration: TextDecoration.none,
+              fontWeight: FontWeight.normal,
+            ),
           ),
         ),
+        color: kPrimaryColor,
+        disabledColor: Colors.grey,
+        shape: new RoundedRectangleBorder(
+            borderRadius: new BorderRadius.circular(20.0)),
+        onPressed: _isLoading ? null : _login,
       ),
     );
 
-    final loginButton3 = MaterialButton(
+    final PasswordButton = MaterialButton(
       onPressed: () {
         Navigator.of(context).push(MaterialPageRoute(
           builder: (context) => Password(),
@@ -341,15 +199,16 @@ class _LoginScreenState extends State<LoginScreen> {
         height: 40,
         width: 60000,
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
-            gradient: LinearGradient(colors: [
-              kPrimaryLightColor,
-              kPrimaryColor,
-            ])),
+            // borderRadius: BorderRadius.circular(20),
+            // gradient: LinearGradient(colors: [
+            //   kPrimaryLightColor,
+            //   kPrimaryColor,
+            // ])
+            ),
         child: Center(
           child: Text(
             "Forgot Password?",
-            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+            style: TextStyle(color: kPrimaryColor, fontWeight: FontWeight.bold),
           ),
         ),
       ),
@@ -359,8 +218,8 @@ class _LoginScreenState extends State<LoginScreen> {
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: <Widget>[
-        loginButton2,
-        loginButton3,
+        loginButton,
+        PasswordButton,
       ],
     );
 
@@ -451,5 +310,58 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
       ),
     );
+  }
+
+  void _login() async {
+    setState(() {
+      _isLoading = true;
+    });
+
+    if (mailController.text == '') {
+      Fluttertoast.showToast(
+          msg: "Please entry your Email/login ID",
+          toastLength: Toast.LENGTH_SHORT,
+          gravity: ToastGravity.CENTER,
+          timeInSecForIosWeb: 1);
+    } else if (passwordController.text == '') {
+      Fluttertoast.showToast(
+          msg: "Please entry your password",
+          toastLength: Toast.LENGTH_SHORT,
+          gravity: ToastGravity.CENTER,
+          timeInSecForIosWeb: 1);
+    } else {
+      //final LoginController loginController = Get.put(LoginController('pass'));
+
+      var data = {
+        'email': mailController.text,
+        'password': passwordController.text
+      };
+      //login.php?username=dashboard&password= 'SNssgbd@2010' 
+      var res = await CallApi().getData('login.php?username=' +
+          mailController.text +
+          '&password=' +
+          passwordController.text);
+      var body = json.decode(res.body);
+     // print(body);
+     if (body['token']?.isNotEmpty == true) {
+        SharedPreferences localStorage = await SharedPreferences.getInstance();
+        localStorage.setString('token', body['token']);
+        localStorage.setString('user', json.encode(body));
+        localStorage.setString('username', json.encode(body['username']));
+        localStorage.setString('division', json.encode(body['division']));
+        _isLoading = false;
+        Navigator.push(
+            context, new MaterialPageRoute(builder: (context) => Tabs()));
+      } else {
+        _isLoading = false;
+        Fluttertoast.showToast(
+            msg: body['error'],
+            toastLength: Toast.LENGTH_SHORT,
+            gravity: ToastGravity.CENTER,
+            timeInSecForIosWeb: 1);
+      }
+
+       
+    }
   }
 }

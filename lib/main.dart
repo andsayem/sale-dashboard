@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shopx/views/screens/login/login_screen.dart';
+import 'package:shopx/Login/loginScreen.dart';
+import 'constants.dart';
 import 'package:shopx/routes/routes.dart';
 
 GlobalKey globalKey = GlobalKey();
@@ -15,6 +17,7 @@ class MyApp extends StatelessWidget {
       routes: AppRoutes.define(),
       key: globalKey,
       home: LoginScreen(),
+      // home: LogIn(),
     );
     // return MaterialApp(
     //   theme: ThemeData(

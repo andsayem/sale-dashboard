@@ -9,9 +9,10 @@ class Tabs extends StatelessWidget {
     return Scaffold(
       backgroundColor: kPrimaryColor,
       drawer: NavigationDrawerWidget(),
-      appBar: AppBar(
-          title: Text(title),
-        ),
+      // appBar: AppBar(
+      //     title: Text(title),
+      //     backgroundColor: kPrimaryColor,
+      //   ),
       
       body: Body(),
     );
