@@ -16,7 +16,8 @@ class MyApp extends StatelessWidget {
       title: 'Opening View Demo',
       routes: AppRoutes.define(),
       key: globalKey,
-      home: LogIn(),
+      home: LoginScreen(),
+     // home: LogIn(),
     );
     // return MaterialApp(
     //   theme: ThemeData(
