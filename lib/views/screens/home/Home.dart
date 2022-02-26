@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:dashboard/controllers/ChannelController.dart';
-import 'package:get/get.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:get/get.dart'; 
 import 'package:get/instance_manager.dart';
 import 'package:dashboard/constants.dart';
 import 'package:dashboard/views/screens/dashboard_details/Dashboard_details.dart';
+import 'package:dashboard/widget/navigation_drawer_widget.dart';
 
 class Home extends StatelessWidget {
   @override
@@ -35,6 +35,7 @@ class _HomePageState extends State<HomePage>
     // channelController.channelList();
 
     return Scaffold(
+      //drawer: NavigationDrawerWidget(),
       appBar: AppBar(
         backgroundColor: kPrimaryColor,
         title: Text('Sales Dashboard'),

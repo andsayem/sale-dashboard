@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:dashboard/constants.dart';
 import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
+import 'package:dashboard/api/api.dart';
+import 'dart:convert';
+import 'package:dashboard/models/ChannelTargets.dart';
 
 class Dashboard_details extends StatefulWidget {
   final String clientName;
@@ -12,6 +15,28 @@ class Dashboard_details extends StatefulWidget {
 
 class _Dashboard_detailsState extends State<Dashboard_details> {
   @override
+  void initState() {
+    _getTargetRows();
+    super.initState();
+  }
+
+  Future<List<List>> _getTargetRows() async {
+    var res = await CallApi().getData(
+        'dashboard-summary-report.php?name=report&date=2018-01-01&to=2022-01-24&channel=Lighting&division=Barishal&token=1');
+    var body = json.decode(res.body);
+    if (body['message'] == 'success') {
+      if (body['data']['reports']['targets']['rows']?.isNotEmpty == true) {
+        var jsonresponse = body['data']['reports']['targets']['rows']; // as List;
+        return channelTargetsFromJson(jsonresponse);
+      } else {
+        return null;
+      }
+      // print(jsonresponse);
+      // return channelTargetsFromJson(jsonresponse);
+
+    }
+  }
+
   Widget build(BuildContext context) {
     // Here you direct access using widget
     return Scaffold(
@@ -26,10 +51,33 @@ class _Dashboard_detailsState extends State<Dashboard_details> {
               padding: EdgeInsets.only(
                   top: 10.0, bottom: 20.0, left: 10.0, right: 10.0),
               children: <Widget>[
+                MaterialButton(
+                    child: FlatButton(
+                      child: Padding(
+                        padding: EdgeInsets.only(
+                            top: 8, bottom: 8, left: 10, right: 10),
+                        child: Text(
+                          'Click Me',
+                          textDirection: TextDirection.ltr,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 15.0,
+                            decoration: TextDecoration.none,
+                            fontWeight: FontWeight.normal,
+                          ),
+                        ),
+                      ),
+                      color: kPrimaryColor,
+                      disabledColor: Colors.grey,
+                      shape: new RoundedRectangleBorder(
+                          borderRadius: new BorderRadius.circular(20.0)),
+                      onPressed: _getTargetRows,
+                    ),
+                    onPressed: _getTargetRows),
                 Container(
                   width: double.infinity,
                   child: Text(
-                    'Dashboard Report Details (' + widget.clientName + ')',
+                    'Dashboard Report Details(' + widget.clientName + ')',
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
                   ),
                 ),
@@ -106,43 +154,31 @@ class _Dashboard_detailsState extends State<Dashboard_details> {
                               ),
                             ),
                           ],
-                          rows: const <DataRow>[
-                            DataRow(
-                              cells: <DataCell>[
-                                DataCell(Text('1')),
-                                DataCell(Text('Lifting')),
-                                DataCell(Text('2323')),
-                                DataCell(Text('12')),
-                                DataCell(Text('24212')),
-                                DataCell(Text('12341')),
-                                DataCell(Text('234')),
-                                DataCell(Text('234')),
-                              ],
-                            ),
-                            DataRow(
-                              cells: <DataCell>[
-                                DataCell(Text('1')),
-                                DataCell(Text('IMS')),
-                                DataCell(Text('2323')),
-                                DataCell(Text('12')),
-                                DataCell(Text('24212')),
-                                DataCell(Text('12341')),
-                                DataCell(Text('234')),
-                                DataCell(Text('234')),
-                              ],
-                            ),
-                            DataRow(
-                              cells: <DataCell>[
-                                DataCell(Text('1')),
-                                DataCell(Text('Collection')),
-                                DataCell(Text('2323')),
-                                DataCell(Text('12')),
-                                DataCell(Text('24212')),
-                                DataCell(Text('12341')),
-                                DataCell(Text('234')),
-                                DataCell(Text('234')),
-                              ],
-                            ),
+                          rows: const <DataRow>[ 
+                              DataRow(
+                                cells: <DataCell>[
+                                  DataCell(Text('1')),
+                                  DataCell(Text('IMS')),
+                                  DataCell(Text('2323')),
+                                  DataCell(Text('12')),
+                                  DataCell(Text('24212')),
+                                  DataCell(Text('12341')),
+                                  DataCell(Text('234')),
+                                  DataCell(Text('234')),
+                                ],
+                              ),
+                              DataRow(
+                                cells: <DataCell>[
+                                  DataCell(Text('1')),
+                                  DataCell(Text('Collection')),
+                                  DataCell(Text('2323')),
+                                  DataCell(Text('12')),
+                                  DataCell(Text('24212')),
+                                  DataCell(Text('12341')),
+                                  DataCell(Text('234')),
+                                  DataCell(Text('234')),
+                                ],
+                              ),
                           ],
                         ))),
                 SizedBox(height: 10),
@@ -248,8 +284,7 @@ class _Dashboard_detailsState extends State<Dashboard_details> {
                           ],
                           rows: const <DataRow>[
                             DataRow(
-                              cells: 
-                              <DataCell>[
+                              cells: <DataCell>[
                                 DataCell(Text('1')),
                                 DataCell(Text('Lifting')),
                                 DataCell(Text('2323')),
@@ -272,175 +307,6 @@ class _Dashboard_detailsState extends State<Dashboard_details> {
                                     // },
                                   ),
                                 ),
-                                
-                              ],
-                            ),
-                            DataRow(
-                              cells: 
-                              <DataCell>[
-                                DataCell(Text('1')),
-                                DataCell(Text('Lifting')),
-                                DataCell(Text('2323')),
-                                DataCell(Text('12')),
-                                DataCell(Text('24212')),
-                                DataCell(Text('12341')),
-                                DataCell(Text('234')),
-                                DataCell(Text('234')),
-                                DataCell(Text('12341')),
-                                DataCell(Text('234')),
-                                DataCell(Text('234')),
-                                DataCell(
-                                  ElevatedButton(
-                                    // onPressed: () {
-                                    //   print(222)
-                                    // },
-                                    child: const Text(" Call"),
-                                    // onPressed: () async {
-                                    //   FlutterPhoneDirectCaller.callNumber('01687493421');
-                                    // },
-                                  ),
-                                ),
-                                
-                              ],
-                            ),
-                            DataRow(
-                              cells: 
-                              <DataCell>[
-                                DataCell(Text('1')),
-                                DataCell(Text('Lifting')),
-                                DataCell(Text('2323')),
-                                DataCell(Text('12')),
-                                DataCell(Text('24212')),
-                                DataCell(Text('12341')),
-                                DataCell(Text('234')),
-                                DataCell(Text('234')),
-                                DataCell(Text('12341')),
-                                DataCell(Text('234')),
-                                DataCell(Text('234')),
-                                DataCell(
-                                  ElevatedButton(
-                                    // onPressed: () {
-                                    //   print(222)
-                                    // },
-                                    child: const Text(" Call"),
-                                    // onPressed: () async {
-                                    //   FlutterPhoneDirectCaller.callNumber('01687493421');
-                                    // },
-                                  ),
-                                ),
-                                
-                              ],
-                            ),
-                            DataRow(
-                              cells: 
-                              <DataCell>[
-                                DataCell(Text('1')),
-                                DataCell(Text('Lifting')),
-                                DataCell(Text('2323')),
-                                DataCell(Text('12')),
-                                DataCell(Text('24212')),
-                                DataCell(Text('12341')),
-                                DataCell(Text('234')),
-                                DataCell(Text('234')),
-                                DataCell(Text('12341')),
-                                DataCell(Text('234')),
-                                DataCell(Text('234')),
-                                DataCell(
-                                  ElevatedButton(
-                                    // onPressed: () {
-                                    //   print(222)
-                                    // },
-                                    child: const Text(" Call"),
-                                    // onPressed: () async {
-                                    //   FlutterPhoneDirectCaller.callNumber('01687493421');
-                                    // },
-                                  ),
-                                ),
-                                
-                              ],
-                            ),
-                            DataRow(
-                              cells: 
-                              <DataCell>[
-                                DataCell(Text('1')),
-                                DataCell(Text('Lifting')),
-                                DataCell(Text('2323')),
-                                DataCell(Text('12')),
-                                DataCell(Text('24212')),
-                                DataCell(Text('12341')),
-                                DataCell(Text('234')),
-                                DataCell(Text('234')),
-                                DataCell(Text('12341')),
-                                DataCell(Text('234')),
-                                DataCell(Text('234')),
-                                DataCell(
-                                  ElevatedButton(
-                                    // onPressed: () {
-                                    //   print(222)
-                                    // },
-                                    child: const Text(" Call"),
-                                    // onPressed: () async {
-                                    //   FlutterPhoneDirectCaller.callNumber('01687493421');
-                                    // },
-                                  ),
-                                ),
-                                
-                              ],
-                            ),
-                            DataRow(
-                              cells: 
-                              <DataCell>[
-                                DataCell(Text('1')),
-                                DataCell(Text('Lifting')),
-                                DataCell(Text('2323')),
-                                DataCell(Text('12')),
-                                DataCell(Text('24212')),
-                                DataCell(Text('12341')),
-                                DataCell(Text('234')),
-                                DataCell(Text('234')),
-                                DataCell(Text('12341')),
-                                DataCell(Text('234')),
-                                DataCell(Text('234')),
-                                DataCell(
-                                  ElevatedButton(
-                                    // onPressed: () {
-                                    //   print(222)
-                                    // },
-                                    child: const Text(" Call"),
-                                    // onPressed: () async {
-                                    //   FlutterPhoneDirectCaller.callNumber('01687493421');
-                                    // },
-                                  ),
-                                ),
-                                
-                              ],
-                            ),
-                            DataRow(
-                              cells: 
-                              <DataCell>[
-                                DataCell(Text('1')),
-                                DataCell(Text('Lifting')),
-                                DataCell(Text('2323')),
-                                DataCell(Text('12')),
-                                DataCell(Text('24212')),
-                                DataCell(Text('12341')),
-                                DataCell(Text('234')),
-                                DataCell(Text('234')),
-                                DataCell(Text('12341')),
-                                DataCell(Text('234')),
-                                DataCell(Text('234')),
-                                DataCell(
-                                  ElevatedButton(
-                                    // onPressed: () {
-                                    //   print(222)
-                                    // },
-                                    child: const Text(" Call"),
-                                    // onPressed: () async {
-                                    //   FlutterPhoneDirectCaller.callNumber('01687493421');
-                                    // },
-                                  ),
-                                ),
-                                
                               ],
                             ),
                           ],
@@ -457,6 +323,21 @@ class _Dashboard_detailsState extends State<Dashboard_details> {
       onPressed: () async {
         FlutterPhoneDirectCaller.callNumber('01687493421');
       },
+    );
+  }
+
+  Container rowTarget() {
+    DataRow(
+      cells: <DataCell>[
+        DataCell(Text('1')),
+        DataCell(Text('Lifting')),
+        DataCell(Text('2323')),
+        DataCell(Text('12')),
+        DataCell(Text('24212')),
+        DataCell(Text('12341')),
+        DataCell(Text('234')),
+        DataCell(Text('234')),
+      ],
     );
   }
 }

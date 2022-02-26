@@ -318,34 +318,34 @@ class _LoginScreenState extends State<LoginScreen> {
     });
 
     if (mailController.text == '') {
-       _isLoading = false;
+      _isLoading = false;
       Fluttertoast.showToast(
           msg: "Please entry your Email/login ID",
           toastLength: Toast.LENGTH_SHORT,
           gravity: ToastGravity.CENTER,
           timeInSecForIosWeb: 1);
     } else if (passwordController.text == '') {
-       _isLoading = false;
+      _isLoading = false;
       Fluttertoast.showToast(
           msg: "Please entry your password",
           toastLength: Toast.LENGTH_SHORT,
           gravity: ToastGravity.CENTER,
           timeInSecForIosWeb: 1);
     } else {
-       _isLoading = false;
+      _isLoading = false;
       //final LoginController loginController = Get.put(LoginController('pass'));
 
       var data = {
         'email': mailController.text,
         'password': passwordController.text
       };
-      
+
       //login.php?username=dashboard&password= 'SNssgbd@2010'
       var res = await CallApi().getData('login.php?username=' +
           mailController.text +
           '&password=' +
           passwordController.text);
-       _isLoading = false;
+      _isLoading = false;
       var body = json.decode(res.body);
       // print(body);
       if (body['token']?.isNotEmpty == true) {
@@ -354,17 +354,16 @@ class _LoginScreenState extends State<LoginScreen> {
         localStorage.setString('user', json.encode(body));
         localStorage.setString('username', json.encode(body['username']));
         localStorage.setString('division', json.encode(body['division']));
-       
+
         Navigator.push(
             context, new MaterialPageRoute(builder: (context) => Tabs()));
       } else {
-       
         Fluttertoast.showToast(
             msg: body['error'],
             toastLength: Toast.LENGTH_SHORT,
             gravity: ToastGravity.CENTER,
             timeInSecForIosWeb: 1);
-            // _isLoading = false;
+        // _isLoading = false;
       }
       //_isLoading = false;
     }

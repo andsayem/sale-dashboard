@@ -7,8 +7,7 @@ class Tabs extends StatelessWidget {
   static final String title = 'Sales Dashboard';
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: kPrimaryColor,
-      drawer: NavigationDrawerWidget(),
+      backgroundColor: kPrimaryColor, 
       // appBar: AppBar(
       //     title: Text(title),
       //     backgroundColor: kPrimaryColor,
