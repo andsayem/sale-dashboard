@@ -76,7 +76,7 @@ class _HomePageState extends State<HomePage>
                   children: <Widget>[
                     for (var i in channe)
                       presentCard(
-                          context, i.toString(), 'Dashboard', Icons.light)
+                          context, i.toString(), 'Dashboard', Icons.light ,'summary')
                   ],
                 ),
               ),
@@ -91,7 +91,7 @@ class _HomePageState extends State<HomePage>
                   crossAxisCount: 3,
                   children: <Widget>[
                     for (var i in channe)
-                      presentCard(context, i.toString(), 'Channel', Icons.light)
+                      presentCard(context, i.toString(), 'Channel', Icons.light , 'channel')
                   ],
                 ),
               ),
@@ -107,7 +107,7 @@ class _HomePageState extends State<HomePage>
                   children: <Widget>[
                     for (var i in channe)
                       presentCard(
-                          context, i.toString(), 'Channel Head', Icons.light)
+                          context, i.toString(), 'Channel Head', Icons.light ,'channel_head')
                   ],
                 ),
               ),
@@ -119,7 +119,7 @@ class _HomePageState extends State<HomePage>
   }
 
   Container presentCard(
-      BuildContext context, String title, String subtext, IconData icon) {
+      BuildContext context, String title, String subtext, IconData icon , String type ) {
     return Container(
       padding: const EdgeInsets.all(0),
       // height: 100,
@@ -165,8 +165,20 @@ class _HomePageState extends State<HomePage>
                   FlatButton(
                     padding: EdgeInsets.all(0),
                     onPressed: () {
-                      Navigator.of(context).push(MaterialPageRoute(
+                      if(type == 'summary'){
+                         Navigator.of(context).push(MaterialPageRoute(
                           builder: (context) => Dashboard_details(title)));
+                      }else if(type == 'channel'){
+                        // Navigator.of(context).push(MaterialPageRoute(
+                        //   builder: (context) => Dashboard_details(title)));
+                      }else if(type == 'channel_head'){
+                        // Navigator.of(context).push(MaterialPageRoute(
+                        //   builder: (context) => Dashboard_details(title)));
+                      }else{
+                        // Navigator.of(context).push(MaterialPageRoute(
+                        //   builder: (context) => Dashboard_details(title)));
+                      }
+                     
                     },
                     child: Text(
                       subtext,

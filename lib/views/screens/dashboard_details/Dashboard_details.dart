@@ -25,12 +25,13 @@ class _Dashboard_detailsState extends State<Dashboard_details> {
         'dashboard-summary-report.php?name=report&date=2018-01-01&to=2022-01-24&channel=Lighting&division=Barishal&token=1');
     var body = json.decode(res.body);
     if (body['message'] == 'success') {
-      if (body['data']['reports']['targets']['rows']?.isNotEmpty == true) {
-        var jsonresponse = body['data']['reports']['targets']['rows']; // as List;
-        return channelTargetsFromJson(jsonresponse);
-      } else {
-        return null;
-      }
+      // if (body['data']['reports']['targets']['rows']?.isNotEmpty == true) {
+      //   //var jsonresponse = body['data']['reports']['targets']['rows']; // as List;
+      //  // print(jsonresponse) ; 
+      //  // return channelTargetsFromJson(jsonresponse);
+      // } else {
+      //   return null;
+      // }
       // print(jsonresponse);
       // return channelTargetsFromJson(jsonresponse);
 
