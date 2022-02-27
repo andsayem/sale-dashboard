@@ -344,7 +344,7 @@ class _Channel_head_detailsState extends State<Channel_head_details> {
                             ),
                             DataColumn(
                               label: Text(
-                                'DSM Name',
+                                'IMS PG Report',
                                 style: TextStyle(
                                     fontSize: 15, color: Colors.white),
                               ),
@@ -375,20 +375,20 @@ class _Channel_head_detailsState extends State<Channel_head_details> {
                             DataRow(
                               cells: <DataCell>[
                                 DataCell(Text('1')),
+                                DataCell(Text('Sl')),
+                                DataCell(Text('Division')),
+                                DataCell(Text('Lifting Tgt')),
                                 DataCell(Text('Lifting')),
-                                DataCell(Text('2323')),
-                                DataCell(Text('12')),
-                                DataCell(Text('24212')),
-                                DataCell(Text('12341')),
-                                DataCell(Text('234')),
-                                DataCell(Text('234')),
-                                DataCell(Text('12341')),
-                                DataCell(Text('234')),
-                                DataCell(Text('234')),
-                                DataCell(Text('234')),
-                                DataCell(Text('12341')),
-                                DataCell(Text('234')),
-                                DataCell(Text('234')),
+                                DataCell(Text('%')),
+                                DataCell(Text('IMS Tgt')),
+                                DataCell(Text('IMS')),
+                                DataCell(Text('%')),
+                                DataCell(Text('Coll')),
+                                DataCell(Text('%')),
+                                DataCell(Text('DSM name')),
+                                DataCell(Text('IMS PG Summary')),
+                                DataCell(Text('Lifting PG Report')),
+                                DataCell(Text('Lifting PG Summary')),
                                 DataCell(
                                   ElevatedButton(
                                     // onPressed: () {
@@ -429,6 +429,13 @@ class _Channel_head_detailsState extends State<Channel_head_details> {
         DataCell(Text('24212')),
         DataCell(Text('12341')),
         DataCell(Text('234')),
+        DataCell(Text('234')),
+        DataCell(Text('1')),
+        DataCell(Text('Lifting')),
+        DataCell(Text('2323')),
+        DataCell(Text('12')),
+        DataCell(Text('24212')),
+        DataCell(Text('12341')),
         DataCell(Text('234')),
       ],
     );

@@ -262,143 +262,143 @@ class _Channel_detailsState extends State<Channel_details> {
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
                   ),
                 ),
-                // SingleChildScrollView(
-                //     scrollDirection: Axis.horizontal,
-                //     child: SingleChildScrollView(
-                //         scrollDirection: Axis.vertical,
-                //         child: DataTable(
-                //           headingRowColor: MaterialStateColor.resolveWith(
-                //               (states) => kPrimaryColor),
-                //           columns: const <DataColumn>[
-                //             DataColumn(
-                //               label: Text(
-                //                 'SL',
-                //                 style: TextStyle(
-                //                     fontSize: 15, color: Colors.white),
-                //               ),
-                //             ),
-                //             DataColumn(
-                //               label: Text(
-                //                 'Channel Head',
-                //                 style: TextStyle(
-                //                     fontSize: 15, color: Colors.white),
-                //               ),
-                //             ),
-                //             DataColumn(
-                //               label: Text(
-                //                 'Lifting Tgt',
-                //                 style: TextStyle(
-                //                     fontSize: 15, color: Colors.white),
-                //               ),
-                //             ),
-                //             DataColumn(
-                //               label: Text(
-                //                 'Lifting',
-                //                 style: TextStyle(
-                //                     fontSize: 15, color: Colors.white),
-                //               ),
-                //             ),
-                //             DataColumn(
-                //               label: Text(
-                //                 '%',
-                //                 style: TextStyle(
-                //                     fontSize: 15, color: Colors.white),
-                //               ),
-                //             ),
-                //             DataColumn(
-                //               label: Text(
-                //                 'IMS Tgt',
-                //                 style: TextStyle(
-                //                     fontSize: 15, color: Colors.white),
-                //               ),
-                //             ),
-                //             DataColumn(
-                //               label: Text(
-                //                 'IMS',
-                //                 style: TextStyle(
-                //                     fontSize: 15, color: Colors.white),
-                //               ),
-                //             ),
-                //             DataColumn(
-                //               label: Text(
-                //                 '%',
-                //                 style: TextStyle(
-                //                     fontSize: 15, color: Colors.white),
-                //               ),
-                //             ),
-                //             DataColumn(
-                //               label: Text(
-                //                 'Coll.',
-                //                 style: TextStyle(
-                //                     fontSize: 15, color: Colors.white),
-                //               ),
-                //             ),
-                //             DataColumn(
-                //               label: Text(
-                //                 '%',
-                //                 style: TextStyle(
-                //                     fontSize: 15, color: Colors.white),
-                //               ),
-                //             ),
-                //             DataColumn(
-                //               label: Text(
-                //                 'Cell Number',
-                //                 style: TextStyle(
-                //                     fontSize: 15, color: Colors.white),
-                //               ),
-                //             ),
-                //             DataColumn(
-                //               label: Text(
-                //                 'IMS PG Report',
-                //                 style: TextStyle(
-                //                     fontSize: 15, color: Colors.white),
-                //               ),
-                //             ),
-                //             DataColumn(
-                //               label: Text(
-                //                 'IMS PG Summary',
-                //                 style: TextStyle(
-                //                     fontSize: 15, color: Colors.white),
-                //               ),
-                //             ),
-                //             DataColumn(
-                //               label: Text(
-                //                 'Lifting PG Report',
-                //                 style: TextStyle(
-                //                     fontSize: 15, color: Colors.white),
-                //               ),
-                //             ),
-                //             DataColumn(
-                //               label: Text(
-                //                 'Lifting PG Summary',
-                //                 style: TextStyle(
-                //                     fontSize: 15, color: Colors.white),
-                //               ),
-                //             ),
-                //           ],
-                //           rows: const <DataRow>[
-                //             DataRow(
-                //               cells: <DataCell>[
-                //                 DataCell(Text('1')),
-                //                 DataCell(Text('Lifting')),
-                //                 DataCell(Text('2323')),
-                //                 DataCell(Text('12')),
-                //                 DataCell(Text('24212')),
-                //                 DataCell(Text('12341')),
-                //                 DataCell(Text('234')),
-                //                 DataCell(Text('234')),
-                //                 DataCell(Text('12341')),
-                //                 DataCell(Text('234')),
-                //                 DataCell(Text('234')),
-                //                 DataCell(Text('safdasdfsa')),
-                //                 DataCell(Text('23sadasda4')),
-                //                 DataCell(Text('23sadsadsa4')),
-                //                 DataCell(Text('23asdasdsadfsfsfsdf4')),
-                //                 DataCell( Text('23asdasdsadfsfsfsdf4')),
-                //               ],
-                //             ),
-                //           ],
-                //         ))),
+                SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: SingleChildScrollView(
+                        scrollDirection: Axis.vertical,
+                        child: DataTable(
+                          headingRowColor: MaterialStateColor.resolveWith(
+                              (states) => kPrimaryColor),
+                          columns: const <DataColumn>[
+                            DataColumn(
+                              label: Text(
+                                'SL',
+                                style: TextStyle(
+                                    fontSize: 15, color: Colors.white),
+                              ),
+                            ),
+                            DataColumn(
+                              label: Text(
+                                'Channel Head',
+                                style: TextStyle(
+                                    fontSize: 15, color: Colors.white),
+                              ),
+                            ),
+                            DataColumn(
+                              label: Text(
+                                'Lifting Tgt',
+                                style: TextStyle(
+                                    fontSize: 15, color: Colors.white),
+                              ),
+                            ),
+                            DataColumn(
+                              label: Text(
+                                'Lifting',
+                                style: TextStyle(
+                                    fontSize: 15, color: Colors.white),
+                              ),
+                            ),
+                            DataColumn(
+                              label: Text(
+                                '%',
+                                style: TextStyle(
+                                    fontSize: 15, color: Colors.white),
+                              ),
+                            ),
+                            DataColumn(
+                              label: Text(
+                                'IMS Tgt',
+                                style: TextStyle(
+                                    fontSize: 15, color: Colors.white),
+                              ),
+                            ),
+                            DataColumn(
+                              label: Text(
+                                'IMS',
+                                style: TextStyle(
+                                    fontSize: 15, color: Colors.white),
+                              ),
+                            ),
+                            DataColumn(
+                              label: Text(
+                                '%',
+                                style: TextStyle(
+                                    fontSize: 15, color: Colors.white),
+                              ),
+                            ),
+                            DataColumn(
+                              label: Text(
+                                'Coll.',
+                                style: TextStyle(
+                                    fontSize: 15, color: Colors.white),
+                              ),
+                            ),
+                            DataColumn(
+                              label: Text(
+                                '%',
+                                style: TextStyle(
+                                    fontSize: 15, color: Colors.white),
+                              ),
+                            ),
+                            DataColumn(
+                              label: Text(
+                                'Cell Number',
+                                style: TextStyle(
+                                    fontSize: 15, color: Colors.white),
+                              ),
+                            ),
+                            DataColumn(
+                              label: Text(
+                                'IMS PG Report',
+                                style: TextStyle(
+                                    fontSize: 15, color: Colors.white),
+                              ),
+                            ),
+                            DataColumn(
+                              label: Text(
+                                'IMS PG Summary',
+                                style: TextStyle(
+                                    fontSize: 15, color: Colors.white),
+                              ),
+                            ),
+                            DataColumn(
+                              label: Text(
+                                'Lifting PG Report',
+                                style: TextStyle(
+                                    fontSize: 15, color: Colors.white),
+                              ),
+                            ),
+                            DataColumn(
+                              label: Text(
+                                'Lifting PG Summary',
+                                style: TextStyle(
+                                    fontSize: 15, color: Colors.white),
+                              ),
+                            ),
+                          ],
+                          rows: const <DataRow>[
+                            DataRow(
+                              cells: <DataCell>[
+                                DataCell(Text('SL')),
+                                DataCell(Text('Channel Head')),
+                                // DataCell(Text('2323')),
+                                DataCell(Text('Lifting Tgt')),
+                                DataCell(Text('Lifting')),
+                                DataCell(Text('%')),
+                                DataCell(Text('IMS Tgt')),
+                                DataCell(Text('IMS')),
+                                DataCell(Text('%')),
+                                DataCell(Text('Coll')),
+                                DataCell(Text('%')),
+                                DataCell(Text('Cell Number')),
+                                DataCell(Text('IMS PG Report')),
+                                DataCell(Text('IMS PG Summary')),
+                                DataCell(Text('Lifting PG Report')),
+                                DataCell(Text('Lifting PG Summary')),
+                              ],
+                            ),
+                          ],
+                        ))),
               ],
             ),
           ),

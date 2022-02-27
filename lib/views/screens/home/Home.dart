@@ -5,7 +5,7 @@ import 'package:get/instance_manager.dart';
 import 'package:dashboard/constants.dart';
 import 'package:dashboard/views/screens/dashboard_details/Dashboard_details.dart';
 import 'package:dashboard/views/screens/Channel_details/Channel_details.dart';
-import 'package:dashboard/views/screens/Channel_head_details/Channel_head_details.dart';
+import 'package:dashboard/views/screens/Channelhead_details/Channelhead_details.dart';
 // import 'package:dashboard/widget/navigation_drawer_widget.dart';
 
 class Home extends StatelessWidget {
@@ -110,7 +110,7 @@ class _HomePageState extends State<HomePage>
                   children: <Widget>[
                     for (var i in channe)
                       presentCard(context, i.toString(), 'Channel Head',
-                          Icons.person, 'channel_head')
+                          Icons.person, 'channelhead')
                   ],
                 ),
               ),
