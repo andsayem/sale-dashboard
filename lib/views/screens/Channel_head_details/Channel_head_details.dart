@@ -5,15 +5,15 @@ import 'package:dashboard/api/api.dart';
 import 'dart:convert';
 import 'package:dashboard/models/ChannelTargets.dart';
 
-class Dashboard_details extends StatefulWidget {
+class Channel_head_details extends StatefulWidget {
   final String clientName;
-  const Dashboard_details(this.clientName);
+  const Channel_head_details(this.clientName);
 
   @override
-  _Dashboard_detailsState createState() => _Dashboard_detailsState();
+  _Channel_head_detailsState createState() => _Channel_head_detailsState();
 }
 
-class _Dashboard_detailsState extends State<Dashboard_details> {
+class _Channel_head_detailsState extends State<Channel_head_details> {
   @override
   void initState() {
     _getTargetRows();
@@ -78,14 +78,16 @@ class _Dashboard_detailsState extends State<Dashboard_details> {
                 Container(
                   width: double.infinity,
                   child: Text(
-                    'Dashboard Report Details(' + widget.clientName + ')',
+                    'Channel Head Wise Report Details(' +
+                        widget.clientName +
+                        ')',
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
                   ),
                 ),
                 Container(
                   width: double.infinity,
                   child: Text(
-                    'Till 05-Feb-2022 ',
+                    'Till 26-Feb - Month Wise Score Card ',
                     style:
                         TextStyle(fontWeight: FontWeight.normal, fontSize: 11),
                   ),
@@ -107,49 +109,105 @@ class _Dashboard_detailsState extends State<Dashboard_details> {
                             ),
                             DataColumn(
                               label: Text(
-                                'Cumulative',
+                                'Month',
                                 style: TextStyle(
                                     fontSize: 15, color: Colors.white),
                               ),
                             ),
                             DataColumn(
                               label: Text(
-                                'Achiv.',
+                                'National Tgt',
                                 style: TextStyle(
                                     fontSize: 15, color: Colors.white),
                               ),
                             ),
                             DataColumn(
                               label: Text(
-                                'Last Month',
+                                'Delivery',
                                 style: TextStyle(
                                     fontSize: 15, color: Colors.white),
                               ),
                             ),
                             DataColumn(
                               label: Text(
-                                'Feb-2021',
+                                '%',
                                 style: TextStyle(
                                     fontSize: 15, color: Colors.white),
                               ),
                             ),
                             DataColumn(
                               label: Text(
-                                'Achiv. %',
+                                'IMS',
                                 style: TextStyle(
                                     fontSize: 15, color: Colors.white),
                               ),
                             ),
                             DataColumn(
                               label: Text(
-                                'Target',
+                                '%',
                                 style: TextStyle(
                                     fontSize: 15, color: Colors.white),
                               ),
                             ),
                             DataColumn(
                               label: Text(
-                                'Rest Amount',
+                                'Coll.',
+                                style: TextStyle(
+                                    fontSize: 15, color: Colors.white),
+                              ),
+                            ),
+                            DataColumn(
+                              label: Text(
+                                '%',
+                                style: TextStyle(
+                                    fontSize: 15, color: Colors.white),
+                              ),
+                            ),
+                            DataColumn(
+                              label: Text(
+                                'Full Month Lifting',
+                                style: TextStyle(
+                                    fontSize: 15, color: Colors.white),
+                              ),
+                            ),
+                            DataColumn(
+                              label: Text(
+                                'Full Month IMS',
+                                style: TextStyle(
+                                    fontSize: 15, color: Colors.white),
+                              ),
+                            ),
+                            DataColumn(
+                              label: Text(
+                                'Full Month Coll.',
+                                style: TextStyle(
+                                    fontSize: 15, color: Colors.white),
+                              ),
+                            ),
+                            DataColumn(
+                              label: Text(
+                                'Till Date Due',
+                                style: TextStyle(
+                                    fontSize: 15, color: Colors.white),
+                              ),
+                            ),
+                            DataColumn(
+                              label: Text(
+                                'M/E Total Due',
+                                style: TextStyle(
+                                    fontSize: 15, color: Colors.white),
+                              ),
+                            ),
+                            DataColumn(
+                              label: Text(
+                                'Trade Due',
+                                style: TextStyle(
+                                    fontSize: 15, color: Colors.white),
+                              ),
+                            ),
+                            DataColumn(
+                              label: Text(
+                                'Depot Investemnt',
                                 style: TextStyle(
                                     fontSize: 15, color: Colors.white),
                               ),
@@ -158,6 +216,14 @@ class _Dashboard_detailsState extends State<Dashboard_details> {
                           rows: const <DataRow>[
                             DataRow(
                               cells: <DataCell>[
+                                DataCell(Text('1')),
+                                DataCell(Text('IMS')),
+                                DataCell(Text('2323')),
+                                DataCell(Text('12')),
+                                DataCell(Text('24212')),
+                                DataCell(Text('12341')),
+                                DataCell(Text('234')),
+                                DataCell(Text('234')),
                                 DataCell(Text('1')),
                                 DataCell(Text('IMS')),
                                 DataCell(Text('2323')),
@@ -178,6 +244,14 @@ class _Dashboard_detailsState extends State<Dashboard_details> {
                                 DataCell(Text('12341')),
                                 DataCell(Text('234')),
                                 DataCell(Text('234')),
+                                DataCell(Text('1')),
+                                DataCell(Text('Collection')),
+                                DataCell(Text('2323')),
+                                DataCell(Text('12')),
+                                DataCell(Text('24212')),
+                                DataCell(Text('12341')),
+                                DataCell(Text('234')),
+                                DataCell(Text('234')),
                               ],
                             ),
                           ],
@@ -186,7 +260,7 @@ class _Dashboard_detailsState extends State<Dashboard_details> {
                 Container(
                   width: double.infinity,
                   child: Text(
-                    '22-Feb-2022 (forecast data vs achievement)',
+                    'Feb,2022 Cumulative Division Wise',
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
                   ),
                 ),
@@ -207,7 +281,7 @@ class _Dashboard_detailsState extends State<Dashboard_details> {
                             ),
                             DataColumn(
                               label: Text(
-                                'Channel Head',
+                                'Division',
                                 style: TextStyle(
                                     fontSize: 15, color: Colors.white),
                               ),
@@ -221,7 +295,7 @@ class _Dashboard_detailsState extends State<Dashboard_details> {
                             ),
                             DataColumn(
                               label: Text(
-                                'Lifting ACHV',
+                                'Lifting',
                                 style: TextStyle(
                                     fontSize: 15, color: Colors.white),
                               ),
@@ -242,7 +316,7 @@ class _Dashboard_detailsState extends State<Dashboard_details> {
                             ),
                             DataColumn(
                               label: Text(
-                                'IMS ACHV',
+                                'IMS',
                                 style: TextStyle(
                                     fontSize: 15, color: Colors.white),
                               ),
@@ -256,14 +330,7 @@ class _Dashboard_detailsState extends State<Dashboard_details> {
                             ),
                             DataColumn(
                               label: Text(
-                                'IMS Tgt',
-                                style: TextStyle(
-                                    fontSize: 15, color: Colors.white),
-                              ),
-                            ),
-                            DataColumn(
-                              label: Text(
-                                'IMS ACHV',
+                                'Coll.',
                                 style: TextStyle(
                                     fontSize: 15, color: Colors.white),
                               ),
@@ -277,7 +344,28 @@ class _Dashboard_detailsState extends State<Dashboard_details> {
                             ),
                             DataColumn(
                               label: Text(
-                                'Cell Number',
+                                'DSM Name',
+                                style: TextStyle(
+                                    fontSize: 15, color: Colors.white),
+                              ),
+                            ),
+                            DataColumn(
+                              label: Text(
+                                'IMS PG Summary',
+                                style: TextStyle(
+                                    fontSize: 15, color: Colors.white),
+                              ),
+                            ),
+                            DataColumn(
+                              label: Text(
+                                'Lifting PG Report',
+                                style: TextStyle(
+                                    fontSize: 15, color: Colors.white),
+                              ),
+                            ),
+                            DataColumn(
+                              label: Text(
+                                'Lifting PG Summary',
                                 style: TextStyle(
                                     fontSize: 15, color: Colors.white),
                               ),
@@ -292,6 +380,10 @@ class _Dashboard_detailsState extends State<Dashboard_details> {
                                 DataCell(Text('12')),
                                 DataCell(Text('24212')),
                                 DataCell(Text('12341')),
+                                DataCell(Text('234')),
+                                DataCell(Text('234')),
+                                DataCell(Text('12341')),
+                                DataCell(Text('234')),
                                 DataCell(Text('234')),
                                 DataCell(Text('234')),
                                 DataCell(Text('12341')),

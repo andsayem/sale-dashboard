@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:dashboard/controllers/ChannelController.dart';
-import 'package:get/get.dart'; 
+import 'package:get/get.dart';
 import 'package:get/instance_manager.dart';
 import 'package:dashboard/constants.dart';
 import 'package:dashboard/views/screens/dashboard_details/Dashboard_details.dart';
-import 'package:dashboard/widget/navigation_drawer_widget.dart';
+import 'package:dashboard/views/screens/Channel_details/Channel_details.dart';
+import 'package:dashboard/views/screens/Channel_head_details/Channel_head_details.dart';
+// import 'package:dashboard/widget/navigation_drawer_widget.dart';
 
 class Home extends StatelessWidget {
   @override
@@ -75,8 +77,8 @@ class _HomePageState extends State<HomePage>
                   crossAxisCount: 3,
                   children: <Widget>[
                     for (var i in channe)
-                      presentCard(
-                          context, i.toString(), 'Dashboard', Icons.light ,'summary')
+                      presentCard(context, i.toString(), 'Dashboard',
+                          Icons.summarize, 'summary')
                   ],
                 ),
               ),
@@ -91,7 +93,8 @@ class _HomePageState extends State<HomePage>
                   crossAxisCount: 3,
                   children: <Widget>[
                     for (var i in channe)
-                      presentCard(context, i.toString(), 'Channel', Icons.light , 'channel')
+                      presentCard(context, i.toString(), 'Channel',
+                          Icons.chair_alt, 'channel')
                   ],
                 ),
               ),
@@ -106,8 +109,8 @@ class _HomePageState extends State<HomePage>
                   crossAxisCount: 3,
                   children: <Widget>[
                     for (var i in channe)
-                      presentCard(
-                          context, i.toString(), 'Channel Head', Icons.light ,'channel_head')
+                      presentCard(context, i.toString(), 'Channel Head',
+                          Icons.person, 'channel_head')
                   ],
                 ),
               ),
@@ -118,8 +121,8 @@ class _HomePageState extends State<HomePage>
     );
   }
 
-  Container presentCard(
-      BuildContext context, String title, String subtext, IconData icon , String type ) {
+  Container presentCard(BuildContext context, String title, String subtext,
+      IconData icon, String type) {
     return Container(
       padding: const EdgeInsets.all(0),
       // height: 100,
@@ -148,11 +151,11 @@ class _HomePageState extends State<HomePage>
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   FlatButton(
-                    padding: EdgeInsets.all(1),
-                    onPressed: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => Dashboard_details(title)));
-                    },
+                    // padding: EdgeInsets.all(1),
+                    // onPressed: () {
+                    //   Navigator.of(context).push(MaterialPageRoute(
+                    //       builder: (context) => Dashboard_details(title)));
+                    // },
                     child: Text(
                       title,
                       style: TextStyle(
@@ -165,20 +168,19 @@ class _HomePageState extends State<HomePage>
                   FlatButton(
                     padding: EdgeInsets.all(0),
                     onPressed: () {
-                      if(type == 'summary'){
-                         Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => Dashboard_details(title)));
-                      }else if(type == 'channel'){
+                      if (type == 'summary') {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => Dashboard_details(title)));
+                      } else if (type == 'channel') {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => Channel_details(title)));
+                      } else if (type == 'channel_head') {
                         // Navigator.of(context).push(MaterialPageRoute(
                         //   builder: (context) => Dashboard_details(title)));
-                      }else if(type == 'channel_head'){
-                        // Navigator.of(context).push(MaterialPageRoute(
-                        //   builder: (context) => Dashboard_details(title)));
-                      }else{
+                      } else {
                         // Navigator.of(context).push(MaterialPageRoute(
                         //   builder: (context) => Dashboard_details(title)));
                       }
-                     
                     },
                     child: Text(
                       subtext,
