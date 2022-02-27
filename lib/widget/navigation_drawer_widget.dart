@@ -33,6 +33,7 @@ class NavigationDrawerWidget extends StatelessWidget {
                 builder: (context) => UserPage(
                   name: name,
                   urlImage: urlImage,
+                  // url Image
                 ),
               )),
             ),
@@ -115,7 +116,7 @@ class NavigationDrawerWidget extends StatelessWidget {
                           Icons.power_settings_new,
                           color: Colors.red,
                         ),
-                        onTap:  logout ,
+                        onTap: logout,
                       ),
                       SizedBox(
                         height: MediaQuery.of(context).padding.bottom,
@@ -226,15 +227,13 @@ class NavigationDrawerWidget extends StatelessWidget {
         break;
     }
   }
-    void logout() async{ 
-         SharedPreferences localStorage = await SharedPreferences.getInstance();
-         //localStorage.remove('user');
-         localStorage.remove('token');
-          Navigator.push(
-        context,
-        new MaterialPageRoute(
-            builder: (context) => LoginScreen()));
+
+  void logout() async {
+    SharedPreferences localStorage = await SharedPreferences.getInstance();
+    //localStorage.remove('user');
+    localStorage.remove('token');
+    Navigator.push(
+        context, new MaterialPageRoute(builder: (context) => LoginScreen()));
     //  }
-     
   }
 }
