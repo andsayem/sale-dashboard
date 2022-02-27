@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:dashboard/controllers/ChannelController.dart';
-import 'package:get/get.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:get/get.dart'; 
 import 'package:get/instance_manager.dart';
 import 'package:dashboard/constants.dart';
 import 'package:dashboard/views/screens/dashboard_details/Dashboard_details.dart';
+import 'package:dashboard/widget/navigation_drawer_widget.dart';
 
 class Home extends StatelessWidget {
   @override
@@ -35,6 +35,7 @@ class _HomePageState extends State<HomePage>
     // channelController.channelList();
 
     return Scaffold(
+      //drawer: NavigationDrawerWidget(),
       appBar: AppBar(
         backgroundColor: kPrimaryColor,
         title: Text('Sales Dashboard'),
@@ -75,7 +76,7 @@ class _HomePageState extends State<HomePage>
                   children: <Widget>[
                     for (var i in channe)
                       presentCard(
-                          context, i.toString(), 'Dashboard', Icons.light)
+                          context, i.toString(), 'Dashboard', Icons.light ,'summary')
                   ],
                 ),
               ),
@@ -90,7 +91,7 @@ class _HomePageState extends State<HomePage>
                   crossAxisCount: 3,
                   children: <Widget>[
                     for (var i in channe)
-                      presentCard(context, i.toString(), 'Channel', Icons.light)
+                      presentCard(context, i.toString(), 'Channel', Icons.light , 'channel')
                   ],
                 ),
               ),
@@ -106,7 +107,7 @@ class _HomePageState extends State<HomePage>
                   children: <Widget>[
                     for (var i in channe)
                       presentCard(
-                          context, i.toString(), 'Channel Head', Icons.light)
+                          context, i.toString(), 'Channel Head', Icons.light ,'channel_head')
                   ],
                 ),
               ),
@@ -118,7 +119,7 @@ class _HomePageState extends State<HomePage>
   }
 
   Container presentCard(
-      BuildContext context, String title, String subtext, IconData icon) {
+      BuildContext context, String title, String subtext, IconData icon , String type ) {
     return Container(
       padding: const EdgeInsets.all(0),
       // height: 100,
@@ -164,8 +165,20 @@ class _HomePageState extends State<HomePage>
                   FlatButton(
                     padding: EdgeInsets.all(0),
                     onPressed: () {
-                      Navigator.of(context).push(MaterialPageRoute(
+                      if(type == 'summary'){
+                         Navigator.of(context).push(MaterialPageRoute(
                           builder: (context) => Dashboard_details(title)));
+                      }else if(type == 'channel'){
+                        // Navigator.of(context).push(MaterialPageRoute(
+                        //   builder: (context) => Dashboard_details(title)));
+                      }else if(type == 'channel_head'){
+                        // Navigator.of(context).push(MaterialPageRoute(
+                        //   builder: (context) => Dashboard_details(title)));
+                      }else{
+                        // Navigator.of(context).push(MaterialPageRoute(
+                        //   builder: (context) => Dashboard_details(title)));
+                      }
+                     
                     },
                     child: Text(
                       subtext,
