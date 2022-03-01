@@ -395,6 +395,7 @@ class _Channel_detailsState extends State<Channel_details> {
                                 DataCell(Text('IMS PG Summary')),
                                 DataCell(Text('Lifting PG Report')),
                                 DataCell(Text('Lifting PG Summary')),
+                                // DataCell(Text('Liuft')),
                               ],
                             ),
                           ],
