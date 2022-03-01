@@ -26,7 +26,7 @@ class BottomNavBar extends StatefulWidget {
 
 class _BottomNavBarState extends State<BottomNavBar> {
   int _page = 0;
-  final pages = [ Home() , PeoplePage(), DivisionPage(), ProfilePage()];
+  final pages = [ Home() , PeoplePage(),  PeoplePage(), DivisionPage(), ProfilePage()];
   GlobalKey<CurvedNavigationBarState> _bottomNavigationKey = GlobalKey();
 
   @override

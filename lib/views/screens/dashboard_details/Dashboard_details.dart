@@ -8,12 +8,14 @@ import 'package:dashboard/models/ChannelTargets.dart';
 class Dashboard_details extends StatefulWidget {
   final String clientName;
   const Dashboard_details(this.clientName);
-
+  //var targetList  = new List<String>();
   @override
   _Dashboard_detailsState createState() => _Dashboard_detailsState();
 }
 
 class _Dashboard_detailsState extends State<Dashboard_details> {
+  var targetList  = new List<dynamic>();
+  var value = 6;
   @override
   void initState() {
     _getTargetRows();
@@ -25,7 +27,12 @@ class _Dashboard_detailsState extends State<Dashboard_details> {
         'dashboard-summary-report.php?name=report&date=2018-01-01&to=2022-01-24&channel=Lighting&division=Barishal&token=1');
     var body = json.decode(res.body);
     if (body['message'] == 'success') {
-      print(body['data']['reports']['targets']['rows'][1]);
+     // print(body['data']['reports']['targets']['rows'][1]);
+      targetList = body['data']['reports']['targets']['rows'][1] ;
+      print('targetList');
+      print(targetList);
+      print('targetList');
+      //targetList = body['data']['reports']['targets']['rows'][1] ;
       // if (body['data']['reports']['targets']['rows']?.isNotEmpty == true) {
       //   //var jsonresponse = body['data']['reports']['targets']['rows']; // as List;
       //  // print(jsonresponse) ;
@@ -287,7 +294,7 @@ class _Dashboard_detailsState extends State<Dashboard_details> {
                           rows: const <DataRow>[
                             DataRow(
                               cells: <DataCell>[
-                                DataCell(Text('1')),
+                                DataCell(Text('1_9')),
                                 DataCell(Text('Lifting')),
                                 DataCell(Text('2323')),
                                 DataCell(Text('12')),
@@ -331,8 +338,8 @@ class _Dashboard_detailsState extends State<Dashboard_details> {
   Container rowTarget() {
     DataRow(
       cells: <DataCell>[
-        DataCell(Text('1')),
-        DataCell(Text('Lifting')),
+        DataCell(Text(widget.clientName)),
+        DataCell(Text('Lifting ===')),
         DataCell(Text('2323')),
         DataCell(Text('12')),
         DataCell(Text('24212')),
