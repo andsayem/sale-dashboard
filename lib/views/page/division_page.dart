@@ -17,7 +17,7 @@ class DivisionPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text('Json Parsing Demo'),
+        title: Text('Users'),
       ),
       body: ChangeNotifierProvider<MyHomePageProvider>(
         create: (context) => MyHomePageProvider(),

@@ -1,12 +1,12 @@
-
+ 
 import 'dart:convert';
 
-DashboardSummaryReport dashboardSummaryReportFromJson(String str) => DashboardSummaryReport.fromJson(json.decode(str));
+Targets targetsFromJson(String str) => Targets.fromJson(json.decode(str));
 
-String dashboardSummaryReportToJson(DashboardSummaryReport data) => json.encode(data.toJson());
+String targetsToJson(Targets data) => json.encode(data.toJson());
 
-class DashboardSummaryReport {
-    DashboardSummaryReport({
+class Targets {
+    Targets({
         this.status,
         this.message,
         this.data,
@@ -16,7 +16,7 @@ class DashboardSummaryReport {
     String message;
     Data data;
 
-    factory DashboardSummaryReport.fromJson(Map<String, dynamic> json) => DashboardSummaryReport(
+    factory Targets.fromJson(Map<String, dynamic> json) => Targets(
         status: json["status"],
         message: json["message"],
         data: Data.fromJson(json["data"]),
@@ -116,12 +116,12 @@ class Reports {
         this.forecast,
     });
 
-    Targets targets;
+    TargetsClass targets;
     Forecast forecastVsAchievement;
     Forecast forecast;
 
     factory Reports.fromJson(Map<String, dynamic> json) => Reports(
-        targets: Targets.fromJson(json["targets"]),
+        targets: TargetsClass.fromJson(json["targets"]),
         forecastVsAchievement: Forecast.fromJson(json["forecast_vs_achievement"]),
         forecast: Forecast.fromJson(json["forecast"]),
     );
@@ -161,8 +161,8 @@ class Forecast {
     };
 }
 
-class Targets {
-    Targets({
+class TargetsClass {
+    TargetsClass({
         this.title,
         this.columns,
         this.rows,
@@ -172,7 +172,7 @@ class Targets {
     List<String> columns;
     List<List<dynamic>> rows;
 
-    factory Targets.fromJson(Map<String, dynamic> json) => Targets(
+    factory TargetsClass.fromJson(Map<String, dynamic> json) => TargetsClass(
         title: json["title"],
         columns: List<String>.from(json["columns"].map((x) => x)),
         rows: List<List<dynamic>>.from(json["rows"].map((x) => List<dynamic>.from(x.map((x) => x)))),

@@ -6,7 +6,7 @@ class CallApi {
   // final String _url = 'http://logintut.localhost/api/';
   // print(data);
   // final String _url = 'https://bpt.ssgbd.com/backend/public/api/';
-  final String _url = 'https://dashboard.ssgbd.com/app_api/';
+  final String _url = 'https://dashboarddev.ssgbd.com/app_api/';
   postData(data, apiUrl) async {
     var fullUrl;
     fullUrl = _url + apiUrl + await _getToken();
