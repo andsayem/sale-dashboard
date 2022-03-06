@@ -1,5 +1,8 @@
+import 'package:dashboard/models/user.dart';
 import 'package:dashboard/utils/user_preferences.dart';
+import 'package:dashboard/widget/appbar_widget.dart';
 import 'package:dashboard/widget/button_widget.dart';
+import 'package:dashboard/widget/profile_widget.dart';
 import 'package:flutter/material.dart';
 
 class ProfilePage extends StatefulWidget {

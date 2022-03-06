@@ -7,7 +7,7 @@ class ProfileWidget extends StatelessWidget {
   const ProfileWidget({
     Key key,
     this.imagePath,
-    this.onClicked,
+    this.onClicked, String ImagePath, Future<Null> Function() OnClicked,
   }) : super(key: key);
 
   @override
