@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:dashboard/widget/numbers_widget.dart';
 
 class ButtonWidget extends StatelessWidget {
   final IconData icon;
@@ -6,15 +7,19 @@ class ButtonWidget extends StatelessWidget {
   final VoidCallback onClicked;
 
   const ButtonWidget({
-    Key  key,
-      this.icon,
-      this.text,
-      this.onClicked,
+    Key key,
+    this.icon,
+    this.text,
+    this.onClicked,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) => ElevatedButton(
         style: ElevatedButton.styleFrom(
+          shape: StadiumBorder(),
+          onPrimary: Colors.white,
+          padding: EdgeInsets.symmetric(horizontal: 32, vertical: 12),
+          // NumberWidget(),
           minimumSize: Size.fromHeight(50),
         ),
         child: buildContent(),
