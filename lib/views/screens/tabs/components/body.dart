@@ -1,5 +1,5 @@
 import 'package:dashboard/views/screens/home/Home.dart';
-import 'package:dashboard/views/screens/User/profile.dart';
+import 'package:dashboard/views/screens/ProfilePage/profile_page.dart';
 import 'package:dashboard/views/screens/home/Home.dart';
 import 'package:dashboard/views/page/division_page.dart';
 import 'package:dashboard/views/page/people_page.dart';

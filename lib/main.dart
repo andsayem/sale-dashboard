@@ -1,3 +1,4 @@
+import 'package:dashboard/widget/navigation_drawer_widget.dart';
 import 'package:flutter/material.dart';
 // import 'package:dashboard/views/homepage.dart';
 import 'package:dashboard/views/screens/login/login_screen.dart';
@@ -41,6 +42,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       //  debugShowCheckedModeBanner: false,
       home: Scaffold(
+        drawer: NavigationDrawerWidget(),
         body: _isLoggedIn ? Tabs() : LoginScreen(),
       ),
     );
