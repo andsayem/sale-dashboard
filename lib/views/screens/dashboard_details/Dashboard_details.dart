@@ -14,7 +14,7 @@ class Dashboard_details extends StatefulWidget {
 }
 
 class _Dashboard_detailsState extends State<Dashboard_details> {
-  var targetList  = new List<dynamic>();
+  var targetList = new List<dynamic>();
   var value = 6;
   @override
   void initState() {
@@ -27,27 +27,11 @@ class _Dashboard_detailsState extends State<Dashboard_details> {
         'dashboard-summary-report.php?name=report&date=2018-01-01&to=2022-01-24&channel=Lighting&division=Barishal&token=1');
     var body = json.decode(res.body);
     if (body['message'] == 'success') {
-     // print(body['data']['reports']['targets']['rows'][1]);
-      targetList = body['data']['reports']['targets']['rows'][1] ;
-      print('targetList');
-      print(targetList);
-      print('targetList');
-      //targetList = body['data']['reports']['targets']['rows'][1] ;
-      // if (body['data']['reports']['targets']['rows']?.isNotEmpty == true) {
-      //   //var jsonresponse = body['data']['reports']['targets']['rows']; // as List;
-      //  // print(jsonresponse) ;
-      //  // return channelTargetsFromJson(jsonresponse);
-      // } else {
-      //   return null;
-      // }
-      // print(jsonresponse);
-      // return channelTargetsFromJson(jsonresponse);
-
+      targetList = body['data']['reports']['targets']['rows'][1];
     }
   }
 
   Widget build(BuildContext context) {
-    // Here you direct access using widget
     return Scaffold(
         appBar: AppBar(
           centerTitle: true,

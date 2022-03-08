@@ -77,10 +77,16 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
                 Column(
                   children: [
-                    Text(
-                      'Full Name',
-                      style: TextStyle(
-                          fontSize: 15, height: 2, fontWeight: FontWeight.bold),
+                    Align(
+                      alignment: Alignment.topLeft,
+                      child: Text(
+                        'Full Name',
+                        textAlign: TextAlign.left,
+                        style: TextStyle(
+                            fontSize: 15,
+                            height: 2,
+                            fontWeight: FontWeight.bold),
+                      ),
                     ),
                     const SizedBox(height: 8),
                     Text(
@@ -107,13 +113,13 @@ class _ProfilePageState extends State<ProfilePage> {
                     Text(
                       'Designation',
                       style: TextStyle(
-                          fontSize: 24, height: 2, fontWeight: FontWeight.bold),
+                          fontSize: 15, height: 2, fontWeight: FontWeight.bold),
                     ),
                     const SizedBox(height: 8),
                     Text(
                       user.designation,
                       style: TextStyle(
-                        fontSize: 24,
+                        fontSize: 20,
                         height: 0.5,
                       ),
                     ),
@@ -134,13 +140,13 @@ class _ProfilePageState extends State<ProfilePage> {
                     Text(
                       'Department',
                       style: TextStyle(
-                          fontSize: 24, height: 2, fontWeight: FontWeight.bold),
+                          fontSize: 15, height: 2, fontWeight: FontWeight.bold),
                     ),
                     const SizedBox(height: 8),
                     Text(
                       user.department,
                       style: TextStyle(
-                        fontSize: 24,
+                        fontSize: 20,
                         height: 0.5,
                       ),
                     ),
@@ -161,13 +167,13 @@ class _ProfilePageState extends State<ProfilePage> {
                     Text(
                       'User Id',
                       style: TextStyle(
-                          fontSize: 24, height: 2, fontWeight: FontWeight.bold),
+                          fontSize: 15, height: 2, fontWeight: FontWeight.bold),
                     ),
                     const SizedBox(height: 8),
                     Text(
                       user.id,
                       style: TextStyle(
-                        fontSize: 24,
+                        fontSize: 20,
                         height: 0.5,
                       ),
                     ),
@@ -188,13 +194,13 @@ class _ProfilePageState extends State<ProfilePage> {
                     Text(
                       'Corporate Mail',
                       style: TextStyle(
-                          fontSize: 24, height: 2, fontWeight: FontWeight.bold),
+                          fontSize: 15, height: 2, fontWeight: FontWeight.bold),
                     ),
                     const SizedBox(height: 8),
                     Text(
                       user.email,
                       style: TextStyle(
-                        fontSize: 15,
+                        fontSize: 20,
                         height: 0.5,
                       ),
                     ),
@@ -215,13 +221,13 @@ class _ProfilePageState extends State<ProfilePage> {
                     Text(
                       'Phone Number',
                       style: TextStyle(
-                          fontSize: 24, height: 2, fontWeight: FontWeight.bold),
+                          fontSize: 15, height: 2, fontWeight: FontWeight.bold),
                     ),
                     const SizedBox(height: 8),
                     Text(
                       user.phone,
                       style: TextStyle(
-                        fontSize: 24,
+                        fontSize: 20,
                         height: 0.5,
                       ),
                     ),
