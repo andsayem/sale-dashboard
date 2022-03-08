@@ -7,7 +7,9 @@ class ProfileWidget extends StatelessWidget {
   const ProfileWidget({
     Key key,
     this.imagePath,
-    this.onClicked, String ImagePath, Future<Null> Function() OnClicked,
+    this.onClicked,
+    String ImagePath,
+    Future<Null> Function() OnClicked,
   }) : super(key: key);
 
   @override
@@ -29,7 +31,8 @@ class ProfileWidget extends StatelessWidget {
   }
 
   Widget buildImage() {
-    final image = NetworkImage('https://www.ssgbd.com/storage/app/media/management/009.jpg');
+    final image = NetworkImage(
+        'https://www.ssgbd.com/storage/app/media/management/009.jpg');
 
     return ClipOval(
       child: Material(
