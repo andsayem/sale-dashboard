@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'package:dashboard/constants.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:dashboard/views/screens/ProfilePage/edit_profile_page.dart';
 
 class Body extends StatelessWidget {
   @override
@@ -29,7 +30,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
   final pages = [
     Home(),
     PeoplePage(),
-    PeoplePage(),
+    EditProfilePage(),
     DivisionPage(),
     ProfilePage()
   ];

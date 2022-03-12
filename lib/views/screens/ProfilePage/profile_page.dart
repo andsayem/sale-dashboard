@@ -2,7 +2,7 @@ import 'package:dashboard/constants.dart';
 import 'package:dashboard/models/user.dart';
 import 'package:dashboard/utils/user_preferences.dart';
 import 'package:dashboard/widget/BaseAppBar.dart';
-import 'package:dashboard/widget/button_widget.dart';
+// import 'package:dashboard/widget/button_widget.dart';
 // import 'package:dashboard/widget/numbers_widget.dart';
 import 'package:dashboard/widget/profile_widget.dart';
 import 'package:flutter/material.dart';
@@ -19,11 +19,11 @@ class _ProfilePageState extends State<ProfilePage> {
   Widget build(BuildContext context) {
     final user = UserPreferences.myUser;
     return Scaffold(
-      appBar: BaseAppBar(
-        title: Text('My Profile'),
-        appBar: AppBar(),
-        widgets: <Widget>[Icon(Icons.more_vert)],
-      ),
+      // appBar: BaseAppBar(
+      //   title: Text('My Profile'),
+      //   appBar: AppBar(),
+      //   widgets: <Widget>[Icon(Icons.more_vert)],
+      // ),
       body: ListView(
         physics: BouncingScrollPhysics(),
         children: [
@@ -34,6 +34,7 @@ class _ProfilePageState extends State<ProfilePage> {
           const SizedBox(height: 24),
           buildname(user),
           const SizedBox(height: 24),
+          buildAbout(user),
           // Center(
           //   child: buildUpgradeButton(),
           // ),
@@ -44,7 +45,6 @@ class _ProfilePageState extends State<ProfilePage> {
           // const SizedBox(
           //   height: 48,
           // ),
-          buildAbout(user),
         ],
       ),
     );
@@ -104,7 +104,7 @@ class _ProfilePageState extends State<ProfilePage> {
             Row(
               children: [
                 Icon(
-                  Icons.person,
+                  Icons.tag,
                   color: kPrimaryColor,
                   size: 24,
                 ),
@@ -131,7 +131,7 @@ class _ProfilePageState extends State<ProfilePage> {
             Row(
               children: [
                 Icon(
-                  Icons.person,
+                  Icons.account_balance,
                   color: kPrimaryColor,
                   size: 24,
                 ),
@@ -158,7 +158,7 @@ class _ProfilePageState extends State<ProfilePage> {
             Row(
               children: [
                 Icon(
-                  Icons.person,
+                  Icons.fingerprint,
                   color: kPrimaryColor,
                   size: 24,
                 ),
@@ -185,7 +185,7 @@ class _ProfilePageState extends State<ProfilePage> {
             Row(
               children: [
                 Icon(
-                  Icons.person,
+                  Icons.mail,
                   color: kPrimaryColor,
                   size: 24,
                 ),
@@ -212,7 +212,7 @@ class _ProfilePageState extends State<ProfilePage> {
             Row(
               children: [
                 Icon(
-                  Icons.person,
+                  Icons.settings_phone,
                   color: kPrimaryColor,
                   size: 24,
                 ),
@@ -236,79 +236,6 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
               ],
             ),
-
-            // Text(
-            //   'Full Name',
-            //   style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
-            // ),
-            // const SizedBox(height: 16),
-            // Text(
-            //   user.name,
-            //   style: TextStyle(
-            //     fontSize: 24,
-            //     height: 0.5,
-            //   ),
-            // ),
-            // Text(
-            //   'Designation',
-            //   style: TextStyle(
-            //       fontSize: 24, height: 2, fontWeight: FontWeight.bold),
-            // ),
-            // const SizedBox(height: 16),
-            // Text(
-            //   user.designation,
-            //   style: TextStyle(fontSize: 16, height: 0.5),
-            // ),
-            // Text(
-            //   'Designation',
-            //   style: TextStyle(
-            //       fontSize: 24, height: 2, fontWeight: FontWeight.bold),
-            // ),
-            // const SizedBox(height: 16),
-            // Text(
-            //   user.designation,
-            //   style: TextStyle(fontSize: 16, height: 0.5),
-            // ),
-            // Text(
-            //   'Department',
-            //   style: TextStyle(
-            //       fontSize: 24, height: 2, fontWeight: FontWeight.bold),
-            // ),
-            // const SizedBox(height: 16),
-            // Text(
-            //   user.department,
-            //   style: TextStyle(fontSize: 16, height: 0.5),
-            // ),
-            // Text(
-            //   'User ID',
-            //   style: TextStyle(
-            //       fontSize: 24, height: 2, fontWeight: FontWeight.bold),
-            // ),
-            // const SizedBox(height: 16),
-            // Text(
-            //   user.id,
-            //   style: TextStyle(fontSize: 16, height: 0.5),
-            // ),
-            // Text(
-            //   'Corporate Mail',
-            //   style: TextStyle(
-            //       fontSize: 24, height: 2, fontWeight: FontWeight.bold),
-            // ),
-            // const SizedBox(height: 16),
-            // Text(
-            //   user.email,
-            //   style: TextStyle(fontSize: 16, height: 0.5),
-            // ),
-            // Text(
-            //   'Phone Number',
-            //   style: TextStyle(
-            //       fontSize: 24, height: 2, fontWeight: FontWeight.bold),
-            // ),
-            // const SizedBox(height: 16),
-            // Text(
-            //   user.phone,
-            //   style: TextStyle(fontSize: 16, height: 0.5),
-            // ),
           ],
         ),
       );

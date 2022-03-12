@@ -45,6 +45,7 @@ class _MyAppState extends State<MyApp> {
         drawer: NavigationDrawerWidget(),
         body: _isLoggedIn ? Tabs() : LoginScreen(),
       ),
+      // home: EditProfilePage(),
     );
   }
 }
