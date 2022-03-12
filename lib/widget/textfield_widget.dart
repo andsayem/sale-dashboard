@@ -14,6 +14,8 @@ class TextFieldWidget extends StatefulWidget {
     this.onChanged,
   }) : super(key: key);
 
+  TextEditingController get controller => null;
+
   @override
   _TextFieldWidgetState createState() => _TextFieldWidgetState(controller);
 }
