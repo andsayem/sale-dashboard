@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:dashboard/constants.dart';  
+import 'package:dashboard/constants.dart';
 import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 import 'package:dashboard/provider/targetPageProvider.dart';
 import 'package:provider/provider.dart';
@@ -38,44 +38,44 @@ class _Dashboard_detailsState extends State<Dashboard_details> {
                       top: 10.0, bottom: 20.0, left: 10.0, right: 10.0),
                   children: <Widget>[
                     Positioned(
-                  left: 0,
-                  right: 0,
-                  top: 0,
-                  height: 80,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    mainAxisSize: MainAxisSize.min,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text('Selected date '),
-                      Text('Selected date count '),
-                      Text('Selected range '),
-                      Text('Selected ranges count ')
-                    ],
-                  ),
-                ),
-                Positioned(
-                  left: 0,
-                  top: 80,
-                  right: 0,
-                  bottom: 0,
-                  child: SfDateRangePicker(
-                    //onSelectionChanged: _onSelectionChanged,
-                    selectionMode: DateRangePickerSelectionMode.range,
-                    initialSelectedRange: PickerDateRange(
-                        DateTime.now().subtract(const Duration(days: 4)),
-                        DateTime.now().add(const Duration(days: 3))),
-                  ),
-                ),
+                      left: 0,
+                      right: 0,
+                      top: 0,
+                      height: 80,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        mainAxisSize: MainAxisSize.min,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text('Selected date '),
+                          Text('Selected date count '),
+                          Text('Selected range '),
+                          Text('Selected ranges count ')
+                        ],
+                      ),
+                    ),
+                    Positioned(
+                      left: 0,
+                      top: 80,
+                      right: 0,
+                      bottom: 0,
+                      child: SfDateRangePicker(
+                        //onSelectionChanged: _onSelectionChanged,
+                        selectionMode: DateRangePickerSelectionMode.range,
+                        initialSelectedRange: PickerDateRange(
+                            DateTime.now().subtract(const Duration(days: 4)),
+                            DateTime.now().add(const Duration(days: 3))),
+                      ),
+                    ),
                     MultiSelectDialogField(
                       items: provider.data.data.filter.channel
                           .map((e) => MultiSelectItem(e, e))
                           .toList(),
                       listType: MultiSelectListType.LIST,
-                      searchable : true ,
-                      selectedColor : kPrimaryColor,
-                      buttonIcon : Icon(Icons.arrow_right_alt_outlined),
-                      title : Text('Select Channel'),
+                      searchable: true,
+                      selectedColor: kPrimaryColor,
+                      buttonIcon: Icon(Icons.arrow_right_alt_outlined),
+                      title: Text('Select Channel'),
                       onConfirm: (values) {
                         // _selectedAnimals = values;
                       },

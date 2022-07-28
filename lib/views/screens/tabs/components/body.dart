@@ -1,24 +1,24 @@
-import 'package:dashboard/views/screens/home/Home.dart'; 
+import 'package:dashboard/views/screens/home/Home.dart';
 import 'package:dashboard/views/screens/User/profile.dart';
 import 'package:dashboard/views/screens/home/Home.dart';
 import 'package:dashboard/views/page/division_page.dart';
-import 'package:dashboard/views/page/people_page.dart'; 
+import 'package:dashboard/views/page/people_page.dart';
 import 'package:dashboard/views/page/target_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'package:dashboard/constants.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+
 class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    // This size provide us total height and width of our screen 
+    // This size provide us total height and width of our screen
     return Scaffold(
       body: BottomNavBar(),
     );
   }
 }
-
 
 class BottomNavBar extends StatefulWidget {
   @override
@@ -27,7 +27,13 @@ class BottomNavBar extends StatefulWidget {
 
 class _BottomNavBarState extends State<BottomNavBar> {
   int _page = 0;
-  final pages = [ Home() , PeoplePage(),  TargetPage('Details'), DivisionPage(), ProfilePage()];
+  final pages = [
+    Home(),
+    PeoplePage(),
+    TargetPage('Details'),
+    DivisionPage(),
+    ProfilePage()
+  ];
   GlobalKey<CurvedNavigationBarState> _bottomNavigationKey = GlobalKey();
 
   @override
@@ -37,14 +43,33 @@ class _BottomNavBarState extends State<BottomNavBar> {
         bottomNavigationBar: CurvedNavigationBar(
           key: _bottomNavigationKey,
           index: 0,
-          
-          height: 70.0, 
+          height: 70.0,
           items: <Widget>[
-            Icon(Icons.home_outlined, size: 30 , color: Colors.white,),
-            Icon(Icons.list, size: 30, color: Colors.white,),
-            Icon(Icons.compare_arrows, size: 30, color: Colors.white,),
-            Icon(Icons.call_split, size: 30, color: Colors.white,),
-            Icon(Icons.perm_identity, size: 30, color: Colors.white,),
+            Icon(
+              Icons.home_outlined,
+              size: 30,
+              color: Colors.white,
+            ),
+            Icon(
+              Icons.list,
+              size: 30,
+              color: Colors.white,
+            ),
+            Icon(
+              Icons.compare_arrows,
+              size: 30,
+              color: Colors.white,
+            ),
+            Icon(
+              Icons.call_split,
+              size: 30,
+              color: Colors.white,
+            ),
+            Icon(
+              Icons.perm_identity,
+              size: 30,
+              color: Colors.white,
+            ),
           ],
           color: kPrimaryColor,
           buttonBackgroundColor: kPrimaryLightColor,
@@ -58,8 +83,6 @@ class _BottomNavBarState extends State<BottomNavBar> {
           },
           letIndexChange: (index) => true,
         ),
-        body:  pages[_page]
-      );
+        body: pages[_page]);
   }
 }
- 
